@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MoYobuV2"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             xmlns:tabbedPage="clr-namespace:MoYobuV2.TabbedPage;assembly=MoYobuV2"
+             x:Class="MoYobuV2.MainPage">
+
+    <tabView:SfTabView VisibleHeaderCount="3"
+                       TabHeaderBackgroundColor="#2196F3"
+                       TabHeaderPosition="Bottom"
+                       DisplayMode="ImageWithText">
+        <tabView:SfTabView.SelectionIndicatorSettings>
+            <tabView:SelectionIndicatorSettings
+                Position="Bottom"
+                StrokeThickness="2" />
+        </tabView:SfTabView.SelectionIndicatorSettings>
+        <tabbedPage:LibraryPage ImageSource="ic_action_book.png" />
+        <tabbedPage:SearchPage ImageSource="ic_action_search.png" />
+        <tabbedPage:OtherPage ImageSource="ic_action_settings.png" />
+    </tabView:SfTabView>
+
+</ContentPage>
