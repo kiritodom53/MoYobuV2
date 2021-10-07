@@ -8,6 +8,8 @@
                    xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
                    xmlns:expander="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms"
                    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+                   xmlns:comboBox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+                   xmlns:generic="clr-namespace:System.Collections.Generic;assembly=netstandard"
                    x:Class="MoYobuV2.TabbedPage.SearchPage"
                    Title="Search">
     <tabView:SfTabItem.BindingContext>
@@ -16,7 +18,7 @@
     <tabView:SfTabItem.Content>
         <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer"
                                              Position="Bottom"
-                                             DrawerWidth="200">
+                                             DrawerHeaderHeight="80">
             <navigationdrawer:SfNavigationDrawer.ContentView>
                 <Grid RowSpacing="0">
                     <Grid.RowDefinitions>
@@ -80,7 +82,7 @@
                                                HeightRequest="210"
                                                HorizontalOptions="FillAndExpand"
                                                Margin="5"
-                                               Source="{Binding Image, Mode=TwoWay}" />
+                                               Source="{Binding Attributes.Cover256, Mode=TwoWay}" />
                                     </StackLayout>
                                 </DataTemplate>
                             </xForms:SfListView.ItemTemplate>
@@ -91,7 +93,7 @@
             </navigationdrawer:SfNavigationDrawer.ContentView>
             <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
                 <Grid BackgroundColor="#1aa1d6">
-                    <StackLayout Spacing="6" BackgroundColor="LightSeaGreen">
+                    <StackLayout BackgroundColor="LightSeaGreen">
                         <!-- BackgroundColor="#D1D6DB" -->
                         <BoxView
                             Margin="20,16,20,5"
@@ -100,36 +102,762 @@
                             HeightRequest="5"
                             HorizontalOptions="Center"
                             WidthRequest="80" />
-
                         <Label
                             Padding="20,0,20,0"
                             FontAttributes="Bold"
                             FontSize="18"
-                            Text="This is an example" />
-
+                            Text="Filter" />
                     </StackLayout>
                 </Grid>
             </navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
             <navigationdrawer:SfNavigationDrawer.DrawerContentView>
-                <Grid BackgroundColor="IndianRed">
+                <Grid BackgroundColor="{StaticResource BgColor}">
                     <ScrollView>
                         <StackLayout Padding="10,20,10,20" Spacing="0">
-                            <!-- Demographic -->
                             <StackLayout Spacing="0" Margin="5">
 
-                                <expander:SfExpander DynamicSizeMode="Content" IsExpanded="True">
+                                <!-- Original language -->
+                                <expander:SfExpander DynamicSizeMode="Content" IsExpanded="False"
+                                                     HeaderBackgroundColor="{StaticResource BgColor}"
+                                                     IconColor="White"
+                                                     Margin="0,5"
+                                                     BackgroundColor="{StaticResource BgColor}">
                                     <expander:SfExpander.Header>
-                                        <Grid>
-                                            <Image Source="ic_action_search.png" Margin="3" Aspect="AspectFit" />
-                                            <Label x:Name="label1" TextColor="#495F6E" Text="Items" FontSize="16"
+                                        <Grid BackgroundColor="{StaticResource BgColor}">
+                                            <Label Text="Original Language"
+                                                   TextColor="White"
+                                                   FontSize="16"
                                                    VerticalOptions="CenterAndExpand" />
                                         </Grid>
                                     </expander:SfExpander.Header>
                                     <expander:SfExpander.Content>
-                                        <buttons:SfCheckBox x:Name="checkBox" IsThreeState="True" IsChecked="True"
-                                                            Text="CheckBox" Margin="5" />
+                                        <StackLayout BackgroundColor="{StaticResource BgColor}">
+                                            <buttons:SfCheckBox Text="Japanese (Manga)"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding OriginalLanguageJapanese, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox Text="Korean (Manhwa)"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding OriginalLanguageKorean, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox Text="Chinese (Manhua)"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding OriginalLanguageChinese, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                        </StackLayout>
                                     </expander:SfExpander.Content>
                                 </expander:SfExpander>
+
+                                <!-- Demographic -->
+                                <expander:SfExpander DynamicSizeMode="Content" IsExpanded="False"
+                                                     HeaderBackgroundColor="{StaticResource BgColor}"
+                                                     IconColor="White"
+                                                     Margin="0,5"
+                                                     BackgroundColor="{StaticResource BgColor}">
+                                    <expander:SfExpander.Header>
+                                        <Grid BackgroundColor="{StaticResource BgColor}">
+                                            <Label TextColor="White"
+                                                   Text="Publication Demographic" FontSize="16"
+                                                   VerticalOptions="CenterAndExpand" />
+                                        </Grid>
+                                    </expander:SfExpander.Header>
+                                    <expander:SfExpander.Content>
+                                        <StackLayout BackgroundColor="{StaticResource BgColor}">
+                                            <buttons:SfCheckBox x:Name="CbDemoNone" Text="None"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding DemographicNone, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbDemoShounen" Text="Shounen"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding DemographicShounen, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White" />
+                                            <buttons:SfCheckBox x:Name="CbDemoShoujo" Text="Shoujo"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding DemographicShoujo, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White" />
+                                            <buttons:SfCheckBox x:Name="CbDemoSeinen" Text="Seinen"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding DemographicSeinen, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White" />
+                                            <buttons:SfCheckBox x:Name="CbDemoJosei" Text="Josei"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding DemographicJosei, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White" />
+                                        </StackLayout>
+                                    </expander:SfExpander.Content>
+                                </expander:SfExpander>
+
+                                <!-- Content Rating -->
+                                <expander:SfExpander DynamicSizeMode="Content" IsExpanded="False"
+                                                     HeaderBackgroundColor="{StaticResource BgColor}"
+                                                     IconColor="White"
+                                                     Margin="0,5"
+                                                     BackgroundColor="{StaticResource BgColor}">
+                                    <expander:SfExpander.Header>
+                                        <Grid BackgroundColor="{StaticResource BgColor}">
+                                            <Label Text="Content Rating"
+                                                   TextColor="White" FontSize="16"
+                                                   VerticalOptions="CenterAndExpand" />
+                                        </Grid>
+                                    </expander:SfExpander.Header>
+                                    <expander:SfExpander.Content>
+                                        <StackLayout BackgroundColor="{StaticResource BgColor}">
+                                            <buttons:SfCheckBox x:Name="CbContentRatingSafe" Text="Safe"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding ContentRatingSafe, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbContentRatingSuggestive" Text="Suggestive"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding ContentRatingSuggestive, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White" />
+                                            <buttons:SfCheckBox x:Name="CbContentRatingErotica" Text="Erotica"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding ContentRatingErotica, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White" />
+                                            <buttons:SfCheckBox x:Name="CbContentRatingPornographic"
+                                                                Text="Pornographic"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding ContentRatingPornographic, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White" />
+                                        </StackLayout>
+                                    </expander:SfExpander.Content>
+                                </expander:SfExpander>
+
+                                <!-- Status -->
+                                <expander:SfExpander DynamicSizeMode="Content" IsExpanded="False"
+                                                     HeaderBackgroundColor="{StaticResource BgColor}"
+                                                     IconColor="White"
+                                                     Margin="0,5"
+                                                     BackgroundColor="{StaticResource BgColor}">
+                                    <expander:SfExpander.Header>
+                                        <Grid BackgroundColor="{StaticResource BgColor}">
+                                            <Label Text="Status"
+                                                   TextColor="White"
+                                                   FontSize="16"
+                                                   VerticalOptions="CenterAndExpand" />
+                                        </Grid>
+                                    </expander:SfExpander.Header>
+                                    <expander:SfExpander.Content>
+                                        <StackLayout BackgroundColor="{StaticResource BgColor}">
+                                            <buttons:SfCheckBox x:Name="CbStatusOngoing" Text="Ongoing"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding StatusOngoing, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbStatusCompleted" Text="Completed"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding StatusCompleted, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White" />
+                                            <buttons:SfCheckBox x:Name="CbStatusHiatus" Text="Hiatus"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding StatusHiatus, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White" />
+                                            <buttons:SfCheckBox x:Name="CbStatusAbandoned" Text="Abandoned"
+                                                                IsThreeState="False"
+                                                                IsChecked="{Binding StatusAbandoned, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White" />
+                                        </StackLayout>
+                                    </expander:SfExpander.Content>
+                                </expander:SfExpander>
+
+                                <!-- Todo: Sort and order -->
+                                <expander:SfExpander DynamicSizeMode="Content" IsExpanded="False"
+                                                     HeaderBackgroundColor="{StaticResource BgColor}"
+                                                     IconColor="White"
+                                                     Margin="0,5"
+                                                     BackgroundColor="{StaticResource BgColor}">
+                                    <expander:SfExpander.Header>
+                                        <Grid BackgroundColor="{StaticResource BgColor}">
+                                            <Label Text="Sort and order"
+                                                   TextColor="White"
+                                                   FontSize="16"
+                                                   VerticalOptions="CenterAndExpand" />
+                                        </Grid>
+                                    </expander:SfExpander.Header>
+                                    <expander:SfExpander.Content>
+                                        <StackLayout BackgroundColor="{StaticResource BgColor}">
+                                            <buttons:SfCheckBox Text="Text"
+                                                                IsThreeState="False"
+                                                                IsChecked="False"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                        </StackLayout>
+                                    </expander:SfExpander.Content>
+                                </expander:SfExpander>
+
+                                <!-- Todo: Change, Tags -->
+                                <expander:SfExpander DynamicSizeMode="Content" IsExpanded="False"
+                                                     HeaderBackgroundColor="{StaticResource BgColor}"
+                                                     IconColor="White"
+                                                     Margin="0,5"
+                                                     BackgroundColor="{StaticResource BgColor}">
+                                    <expander:SfExpander.Header>
+                                        <Grid BackgroundColor="{StaticResource BgColor}">
+                                            <Label Text="Tags"
+                                                   TextColor="White"
+                                                   FontSize="16"
+                                                   VerticalOptions="CenterAndExpand" />
+                                        </Grid>
+                                    </expander:SfExpander.Header>
+                                    <expander:SfExpander.Content>
+                                        <StackLayout BackgroundColor="{StaticResource BgColor}">
+                                            <buttons:SfCheckBox x:Name="CbTagAction" Text="Action"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagAction, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagAdaptation" Text="Adaptation"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagAdaptation, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagAdventure" Text="Adventure"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagAdventure, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagAliens" Text="Aliens"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagAliens, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagAnimals" Text="Animals"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagAnimals, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagAnthology" Text="Anthology"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagAnthology, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagAwardWinning" Text="Award Winning"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagAwardWinning, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagBoysLove" Text="Boy's Love"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagBoysLove, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagComedy" Text="Comedy"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagComedy, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagCooking" Text="Cooking"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagCooking, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagCrime" Text="Crime"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagCrime, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagCrossdressing" Text="Crossdressing"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagCrossdressing, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagDelinquents" Text="Delinquents"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagDelinquents, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagDemons" Text="Demons"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagDemons, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagDoujinshi" Text="Doujinshi"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagDoujinshi, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagDrama" Text="Drama"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagDrama, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagFanColored" Text="Fan Colored"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagFanColored, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagFantasy" Text="Fantasy"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagFantasy, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTag4Koma" Text="4-Koma"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding Tag4Koma, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagFullColor" Text="Full Color"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagFullColor, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagGenderswap" Text="Genderswap"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagGenderswap, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagGhosts" Text="Ghosts"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagGhosts, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagGirlsLove" Text="Girl's Love"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagGirlsLove, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagGore" Text="Gore"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagGore, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagGyaru" Text="Gyaru"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagGyaru, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagHarem" Text="Harem"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagHarem, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagHistorical" Text="Historical"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagHistorical, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagHorror" Text="Horror"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagHorror, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagIncest" Text="Incest"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagIncest, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagIsekai" Text="Isekai"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagIsekai, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagLoli" Text="Loli"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagLoli, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagLongStrip" Text="Long Strip"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagLongStrip, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagMafia" Text="Mafia"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagMafia, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagMagic" Text="Magic"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagMagic, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagMagicalGirls" Text="Magical Girls"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagMagicalGirls, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagMartialArts" Text="Martial Arts"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagMartialArts, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagMecha" Text="Mecha"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagMecha, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagMedical" Text="Medical"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagMedical, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagMilitary" Text="Military"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagMilitary, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagMonsterGirls" Text="Monster Girls"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagMonsterGirls, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagMonsters" Text="Monsters"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagMonsters, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagMusic" Text="Music"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagMusic, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagMystery" Text="Mystery"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagMystery, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagNinja" Text="Ninja"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagNinja, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagOfficeWorkers" Text="Office Workers"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagOfficeWorkers, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagOfficialColored" Text="Official Colored"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagOfficialColored, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagOneshot" Text="Oneshot"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagOneshot, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagPhilosophical" Text="Philosophical"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagPhilosophical, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagPolice" Text="Police"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagPolice, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagPostApocalyptic" Text="Post-Apocalyptic"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagPostApocalyptic, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagPsychological" Text="Psychological"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagPsychological, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagReincarnation" Text="Reincarnation"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagReincarnation, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagReverseHarem" Text="Reverse Harem"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagReverseHarem, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagRomance" Text="Romance"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagRomance, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagSamurai" Text="Samurai"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagSamurai, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagSchoolLife" Text="School Life"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagSchoolLife, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagSciFi" Text="Sci-Fi"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagSciFi, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagSexualViolence" Text="Sexual Violence"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagSexualViolence, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagShota" Text="Shota"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagShota, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagSliceofLife" Text="Slice of Life"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagSliceofLife, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagSports" Text="Sports"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagSports, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagSuperhero" Text="Superhero"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagSuperhero, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagSupernatural" Text="Supernatural"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagSupernatural, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagSurvival" Text="Survival"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagSurvival, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagThriller" Text="Thriller"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagThriller, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagTimeTravel" Text="Time Travel"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagTimeTravel, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagTragedy" Text="Tragedy"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagTragedy, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagTraditionalGames" Text="Traditional Games"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagTraditionalGames, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagUserCreated" Text="User Created"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagUserCreated, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagVampires" Text="Vampires"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagVampires, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagVideoGames" Text="Video Games"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagVideoGames, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagVillainess" Text="Villainess"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagVillainess, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagVirtualReality" Text="Virtual Reality"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagVirtualReality, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagWebComic" Text="Web Comic"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagWebComic, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagWuxia" Text="Wuxia"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagWuxia, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+                                            <buttons:SfCheckBox x:Name="CbTagZombies" Text="Zombies"
+                                                                IsThreeState="True"
+                                                                IsChecked="{Binding TagZombies, Mode=TwoWay}"
+                                                                FontSize="16"
+                                                                TextColor="White"
+                                                                Margin="0,5,0,0" />
+
+                                        </StackLayout>
+                                    </expander:SfExpander.Content>
+                                </expander:SfExpander>
+
+                                <!-- Todo: Selection change, Tag modes -->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="Include tag mode:"
+                                           TextColor="White"
+                                           VerticalOptions="CenterAndExpand"
+                                           FontSize="16" />
+                                    <comboBox:SfComboBox x:Name="CbIncludeTagMode" Grid.Column="1"
+                                                         HeightRequest="40" EnableAutoSize="True"
+                                                         SelectionChanged="CbIncludeTagMode_OnSelectionChanged"
+                                                         IsEditableMode="false"
+                                                         TextColor="White"
+                                                         SelectedIndex="0">
+                                        <comboBox:SfComboBox.ComboBoxSource>
+                                            <generic:List x:TypeArguments="x:String">
+                                                <x:String>And</x:String>
+                                                <x:String>Or</x:String>
+                                            </generic:List>
+                                        </comboBox:SfComboBox.ComboBoxSource>
+                                    </comboBox:SfComboBox>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="Exclude tag mode:"
+                                           TextColor="White"
+                                           VerticalOptions="CenterAndExpand"
+                                           FontSize="16" />
+                                    <comboBox:SfComboBox x:Name="CbExcludeTagMode"
+                                                         Grid.Column="1"
+                                                         HeightRequest="40" EnableAutoSize="True"
+                                                         SelectionChanged="CbExcludeTagMode_OnSelectionChanged"
+                                                         IsEditableMode="false"
+                                                         TextColor="White"
+                                                         SelectedIndex="0">
+                                        <comboBox:SfComboBox.ComboBoxSource>
+                                            <generic:List x:TypeArguments="x:String">
+                                                <x:String>Or</x:String>
+                                                <x:String>And</x:String>
+                                            </generic:List>
+                                        </comboBox:SfComboBox.ComboBoxSource>
+                                    </comboBox:SfComboBox>
+                                </Grid>
+
+                                <!-- Tags mode -->
+                                <!-- <expander:SfExpander DynamicSizeMode="Content" IsExpanded="False" -->
+                                <!--                      HeaderBackgroundColor="{StaticResource BgColor}" -->
+                                <!--                      IconColor="White" -->
+                                <!--                      Margin="0,5" -->
+                                <!--                      BackgroundColor="{StaticResource BgColor}"> -->
+                                <!--     <expander:SfExpander.Header> -->
+                                <!--         <Grid BackgroundColor="{StaticResource BgColor}"> -->
+                                <!--             <Label Text="Status" -->
+                                <!--                    TextColor="White" -->
+                                <!--                    FontSize="16" -->
+                                <!--                    VerticalOptions="CenterAndExpand" /> -->
+                                <!--         </Grid> -->
+                                <!--     </expander:SfExpander.Header> -->
+                                <!--     <expander:SfExpander.Content> -->
+                                <!--         <StackLayout BackgroundColor="{StaticResource BgColor}"> -->
+                                <!--             <buttons:SfCheckBox Text="Text" -->
+                                <!--                                 IsThreeState="False" -->
+                                <!--                                 IsChecked="False" -->
+                                <!--                                 FontSize="16" -->
+                                <!--                                 TextColor="White" -->
+                                <!--                                 Margin="0,5,0,0" /> -->
+                                <!--         </StackLayout> -->
+                                <!--     </expander:SfExpander.Content> -->
+                                <!-- </expander:SfExpander> -->
 
                             </StackLayout>
                         </StackLayout>

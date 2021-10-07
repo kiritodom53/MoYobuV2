@@ -14,6 +14,7 @@
         <PackageReference Include="Syncfusion.Licensing" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.Expander" Version="19.3.0.43" />
+        <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.3.0.43" />
@@ -61,5 +62,10 @@
       <EmbeddedResource Include="Images\8.png" />
       <None Remove="Images\9.png" />
       <EmbeddedResource Include="Images\9.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\MangaDex.Client\MangaDex.Client.csproj" />
+      <ProjectReference Include="..\..\MangaDex\MangaDex.Client\MangaDex.Client.csproj" />
     </ItemGroup>
 </Project>

@@ -7,6 +7,7 @@ using MoYobuV2.ViewModels;
 using Syncfusion.XForms.TabView;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SelectionChangedEventArgs = Syncfusion.XForms.ComboBox.SelectionChangedEventArgs;
 
 namespace MoYobuV2.TabbedPage
 {
@@ -19,9 +20,10 @@ namespace MoYobuV2.TabbedPage
             InitializeComponent();
             _viewModel = new SearchPageViewModel();
             BindingContext = _viewModel;
-            _viewModel.TestData();
-            _viewModel.TestData();
-            _viewModel.TestData();
+            // _viewModel.TestData();
+            // _viewModel.TestData();
+            // _viewModel.TestData();
+            _viewModel.LoadData(0, 25);
         }
 
         private void BtnSearch_OnClicked(object sender, EventArgs e)
@@ -38,6 +40,16 @@ namespace MoYobuV2.TabbedPage
             _viewModel.IsLabelVisible = true;
             _viewModel.IsBtnBackVisible = false;
             _viewModel.IsSearchBarVisible = false;
+        }
+
+        private void CbIncludeTagMode_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _viewModel.IncludeTagMode = CbIncludeTagMode.SelectedItem.ToString();
+        }
+
+        private void CbExcludeTagMode_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _viewModel.ExcludeTagMode = CbExcludeTagMode.SelectedItem.ToString();
         }
     }
 }

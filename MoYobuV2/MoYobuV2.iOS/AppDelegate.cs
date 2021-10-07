@@ -31,6 +31,7 @@ namespace MoYobuV2.iOS
             Syncfusion.XForms.iOS.Expander.SfExpanderRenderer.Init(); 
             SfListViewRenderer.Init();
             SfEffectsViewRenderer.Init(); //Initialize only when effects view is added to Listview.
+            Syncfusion.XForms.iOS.ComboBox.SfComboBoxRenderer.Init();
 
             LoadApplication(new App());
             
