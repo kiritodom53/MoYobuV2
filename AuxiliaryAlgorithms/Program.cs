@@ -97,8 +97,10 @@ namespace AuxiliaryAlgorithms
             // GenerateTagFiledsAndProperties();
             // Console.WriteLine(nameof(TagAction).Substring(3));
 
-            int[] t = new[] { 1, 2, 3 };
-            Console.WriteLine(t.Length);
+            Console.WriteLine(Math.Ceiling((double)201 / 100));
+
+            // int[] t = new[] { 1, 2, 3 };
+            // Console.WriteLine(t.Length);
         }
 
         private static void GenerateTagFiledsAndProperties()
@@ -112,6 +114,7 @@ namespace AuxiliaryAlgorithms
                 File.AppendAllText(file,
                     $"private bool? _tag{pretyItem} = false;\n");
             }
+
             File.AppendAllText(file, "\n\n\n\n\n");
 
             foreach (string item in _tags)
@@ -120,27 +123,28 @@ namespace AuxiliaryAlgorithms
                 File.AppendAllText(file,
                     $"public bool? Tag{pretyItem}\n{{\nget {{ return _tag{pretyItem}; }}\nset => SetProperty(ref _tag{pretyItem}, value,\nnameof(Tag{pretyItem}),\n() => {{ Filter.Tag{pretyItem} = value; }});\n}}\n\n");
             }
-            
+
             File.AppendAllText(file, "\n\n\nMdMangaFilter.cs\n\n\n");
             File.AppendAllText(file, "\n\n\nProperties\n\n\n");
-            
+
             foreach (string item in _tags)
             {
                 string pretyItem = item.Replace(" ", "").Replace("'", "").Replace("-", "");
                 File.AppendAllText(file,
                     $"public bool? Tag{pretyItem} {{ get; set; }} = false;\n");
             }
-            
+
             File.AppendAllText(file, "\n\n\nSetters\n\n\n");
-            
+
             foreach (string item in _tags)
             {
                 string pretyItem = item.Replace(" ", "").Replace("'", "").Replace("-", "");
                 File.AppendAllText(file,
                     $"public MdMangaFilter SetTag{pretyItem}(bool? value = true)\n{{\nTag{pretyItem} = value;\nreturn this;\n}}\n\n");
             }
+
             File.AppendAllText(file, "\n\n\nBuild\n\n\n");
-            
+
             foreach (string item in _tags)
             {
                 string pretyItem = item.Replace(" ", "").Replace("'", "").Replace("-", "");
@@ -160,9 +164,8 @@ namespace AuxiliaryAlgorithms
                     $"<buttons:SfCheckBox x:Name=\"CbTag{item.Replace(" ", "").Replace("'", "").Replace("-", "")}\" Text=\"{item}\"\nIsThreeState=\"True\"\nIsChecked=\"{{Binding Tag{item.Replace(" ", "").Replace("'", "").Replace("-", "")}, Mode=TwoWay}}\"\nFontSize=\"16\"\nTextColor=\"White\"\nMargin=\"0,5,0,0\" />\n");
             }
         }
-        
     }
-    
+
     public static class StringExtensions
     {
         public static string FirstCharToLowerCase(this string str)

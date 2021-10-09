@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Foundation;
 using Syncfusion.ListView.XForms.iOS;
+using Syncfusion.XForms.iOS.Backdrop;
 using Syncfusion.XForms.iOS.EffectsView;
 using UIKit;
 
@@ -32,6 +33,9 @@ namespace MoYobuV2.iOS
             SfListViewRenderer.Init();
             SfEffectsViewRenderer.Init(); //Initialize only when effects view is added to Listview.
             Syncfusion.XForms.iOS.ComboBox.SfComboBoxRenderer.Init();
+            SfBackdropPageRenderer.Init();
+            Syncfusion.XForms.iOS.Buttons.SfChipRenderer.Init();
+            Syncfusion.XForms.iOS.Buttons.SfChipGroupRenderer.Init();
 
             LoadApplication(new App());
             

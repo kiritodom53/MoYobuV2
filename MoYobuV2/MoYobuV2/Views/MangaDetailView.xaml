@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<backdrop:SfBackdropPage xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:backdrop="clr-namespace:Syncfusion.XForms.Backdrop;assembly=Syncfusion.SfBackdrop.XForms"
+                         xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+                         xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+                         xmlns:viewModels="clr-namespace:MoYobuV2.ViewModels;assembly=MoYobuV2"
+                         BackgroundColor="{StaticResource BgColor}"
+                         IsBackLayerRevealed="True"
+                         x:Class="MoYobuV2.Views.MangaDetailView">
+    <!-- <backdrop:SfBackdropPage.BindingContext> -->
+    <!--     <viewModels:MangaDetailViewModel /> -->
+    <!-- </backdrop:SfBackdropPage.BindingContext> -->
+
+    <!-- Back Layer -->
+
+    <backdrop:SfBackdropPage.BackLayer>
+        <backdrop:BackdropBackLayer>
+            <Grid BackgroundColor="{StaticResource BgColor}" VerticalOptions="FillAndExpand">
+                <StackLayout Margin="10,10,10,0">
+
+                    <!-- <ScrollView> -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Row 0 -->
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Frame Grid.Column="0" CornerRadius="20"
+                                   Padding="0"
+                                   BorderColor="Transparent"
+                                   IsClippedToBounds="True">
+                                <Image x:Name="MangaImg"
+                                       Aspect="AspectFill"
+                                       WidthRequest="90"
+                                       HeightRequest="210"
+                                       HorizontalOptions="FillAndExpand" />
+                            </Frame>
+
+
+                            <StackLayout Grid.Column="1">
+                                <Label x:Name="MangaTitle" FontSize="24" />
+                                <Label x:Name="MangaAuthor" FontSize="20" />
+                                <Label x:Name="MangaStatus" FontSize="20" />
+                            </StackLayout>
+                        </Grid>
+
+                        <!-- Row 1 -->
+                        <Grid Grid.Row="1">
+                            <buttons:SfChipGroup x:Name="Tags" Type="Action">
+                                <buttons:SfChipGroup.ChipLayout>
+                                    <FlexLayout
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center"
+                                        Direction="Row"
+                                        Wrap="Wrap"
+                                        JustifyContent="Start"
+                                        AlignContent="Start"
+                                        AlignItems="Start" />
+                                </buttons:SfChipGroup.ChipLayout>
+                                <!-- <buttons:SfChipGroup.Items> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Extra Small" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Small" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Large" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Extra Large" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Medium" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Large" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Small" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Extra Large" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Medium" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Medium" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Extra Small" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Small" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Extra Large" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Extra Small" /> -->
+                                <!-- <buttons:SfChip Margin="3" Text="Large" /> -->
+                                <!-- </buttons:SfChipGroup.Items> -->
+                            </buttons:SfChipGroup>
+                        </Grid>
+
+
+                        <!-- Row 2 -->
+                        <StackLayout Grid.Row="2">
+                            <!-- <Label x:Name="MangaDescription" /> -->
+                        </StackLayout>
+                        <!-- <FlexLayout Grid.Row="2" -->
+                        <!--             HorizontalOptions="Start" -->
+                        <!--             VerticalOptions="Center" -->
+                        <!--             Direction="Row" -->
+                        <!--             Wrap="Wrap" -->
+                        <!--             JustifyContent="Start" -->
+                        <!--             AlignContent="Start" -->
+                        <!--             AlignItems="Start"> -->
+                        <!--     <Label x:Name="MangaDescription" /> -->
+                        <!-- </FlexLayout> -->
+
+                        <!-- <StackLayout Grid.Row="0" HeightRequest="210" BackgroundColor="Aquamarine" /> -->
+                        <!-- <StackLayout Grid.Row="1" HeightRequest="50" BackgroundColor="LightPink" /> -->
+                        <!-- <StackLayout Grid.Row="2" BackgroundColor="LightGreen"> -->
+                        <!--     <Label Text="Test" /> -->
+                        <!-- </StackLayout> -->
+                    </Grid>
+
+                    <ScrollView>
+                        <Grid>
+                            <Label x:Name="MangaDescription" />
+                        </Grid>
+                    </ScrollView>
+                    <!-- </ScrollView> -->
+
+                </StackLayout>
+            </Grid>
+        </backdrop:BackdropBackLayer>
+    </backdrop:SfBackdropPage.BackLayer>
+
+    <!-- Front Layer -->
+
+    <backdrop:SfBackdropPage.FrontLayer>
+        <backdrop:BackdropFrontLayer>
+            <StackLayout Padding="10,0,10,10" VerticalOptions="FillAndExpand"
+                         BackgroundColor="{StaticResource BgColor2}">
+                <Label x:Name="frontLayerheader" Text="Chapters" TextColor="White" VerticalTextAlignment="Center"
+                       HeightRequest="48" />
+                <xForms:SfListView x:Name="MangaChaptersListView"
+                                   ItemSize="50"
+                                   ItemsSource="{Binding Chapters}"
+                                   SelectionBackgroundColor="Transparent">
+                    <xForms:SfListView.LayoutManager>
+                        <xForms:LinearLayout />
+                    </xForms:SfListView.LayoutManager>
+                    <xForms:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackLayout BackgroundColor="{StaticResource BgColor}" Margin="0,5,0,5">
+                                    <Label Text="{Binding Attributes.Title}"
+                                           VerticalTextAlignment="Center"
+                                           TextColor="White"
+                                           FontSize="16"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="FillAndExpand"
+                                           Margin="5" />
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </xForms:SfListView.ItemTemplate>
+                </xForms:SfListView>
+            </StackLayout>
+        </backdrop:BackdropFrontLayer>
+    </backdrop:SfBackdropPage.FrontLayer>
+</backdrop:SfBackdropPage>

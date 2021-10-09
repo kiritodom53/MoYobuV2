@@ -77,6 +77,7 @@
         <Compile Include="Dtos\MangaDto.cs" />
         <Compile Include="Dtos\ResultObject.cs" />
         <Compile Include="Dtos\TagsDto.cs" />
+        <Compile Include="Endpoints\ChapterListEndpoint.cs" />
         <Compile Include="Endpoints\Endpoint.cs" />
         <Compile Include="Endpoints\GetCoverEndpoint.cs" />
         <Compile Include="Endpoints\MangaListEndpoint.cs" />

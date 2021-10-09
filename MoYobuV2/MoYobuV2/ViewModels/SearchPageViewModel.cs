@@ -1,10 +1,15 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using MangaDex.Client;
 using MangaDex.Client.Dtos;
 using MangaDex.Client.Filter;
 using MangaDex.Client.Helpers;
 using MoYobuV2.Models;
 using MvvmHelpers;
+using MvvmHelpers.Commands;
+using MvvmHelpers.Interfaces;
 using Xamarin.Forms;
 
 namespace MoYobuV2.ViewModels
@@ -950,18 +955,35 @@ namespace MoYobuV2.ViewModels
         public ObservableRangeCollection<MangaDto> MangaList { get; set; }
         public MdMangaFilter Filter { get; set; }
         public MdClient MdClient { get; set; }
+        
+        public int Offset { get; set; } = 0;
+        
+
+        public ICommand LoadMoreCommand { get; }
+        // private SearchPage _searchPage;
 
         public SearchPageViewModel()
         {
             MdClient = new MdClient();
             MangaList = new ObservableRangeCollection<MangaDto>();
             Filter = new MdMangaFilter();
+            LoadMoreCommand = new AsyncCommand<object>(LoadMore);
         }
 
-        public async void LoadData(int offset = 0, int limit = 25)
+        public async Task LoadMore(object obj)
         {
-            
+            if (IsBusy)
+                return;
+
+            var listView = obj as Syncfusion.ListView.XForms.SfListView;
+
+            IsBusy = true;
+            listView.IsBusy = true;
+            Filter.Offset = Offset;
+            Offset += Filter.Limit;
             var data = await MdClient.SearchManga(Filter.Build());
+
+            Debug.WriteLine($"Filter offset: {Filter.Offset} - _offest: {Offset}");
 
             foreach (var item in data.Data)
             {
@@ -969,15 +991,71 @@ namespace MoYobuV2.ViewModels
                 var coverId = item.Relationships.First(x => x.Type == MdConstants.CoverArt).Id;
                 // item.Attributes.Cover256 = $"{MdConstants.ApiCover256Url}/{item.Id}/{coverId}.256.jpg";
                 var coverData = await MdClient.GetCover(coverId);
-                item.Attributes.Cover256 = $"{MdConstants.ApiCover256Url}/{item.Id}/{coverData.Data.Attributes.FileName}.256.jpg";
+                item.Attributes.Cover256 =
+                    $"{MdConstants.ApiCover256Url}/{item.Id}/{coverData.Data.Attributes.FileName}.256.jpg";
 
                 // get cover filenam by cover id
             }
-            
+
             MangaList.AddRange(data.Data);
 
-            // var t = "";
+            IsBusy = false;
+            listView.IsBusy = false;
         }
+
+        public async Task LoadFirst()
+        {
+            if (IsBusy)
+                return;
+
+            // var listView = obj as Syncfusion.ListView.XForms.SfListView;
+
+            IsBusy = true;
+            // listView.IsBusy = true;
+            Filter.Offset = Offset;
+            Offset += Filter.Limit;
+            var data = await MdClient.SearchManga(Filter.Build());
+
+            Debug.WriteLine($"Filter offset: {Filter.Offset} - _offest: {Offset}");
+
+            foreach (var item in data.Data)
+            {
+                // https://uploads.mangadex.org/covers/{ manga.id }/{ cover.filename }.256.jpg
+                var coverId = item.Relationships.First(x => x.Type == MdConstants.CoverArt).Id;
+                // item.Attributes.Cover256 = $"{MdConstants.ApiCover256Url}/{item.Id}/{coverId}.256.jpg";
+                var coverData = await MdClient.GetCover(coverId);
+                item.Attributes.Cover256 =
+                    $"{MdConstants.ApiCover256Url}/{item.Id}/{coverData.Data.Attributes.FileName}.256.jpg";
+
+                // get cover filenam by cover id
+            }
+
+            MangaList.AddRange(data.Data);
+
+            IsBusy = false;
+            // listView.IsBusy = true;
+        }
+
+        // public async Task LoadData(int offset = 0)
+        // {
+        //     Filter.Offset = offset;
+        //     var data = await MdClient.SearchManga(Filter.Build());
+        //
+        //     foreach (var item in data.Data)
+        //     {
+        //         // https://uploads.mangadex.org/covers/{ manga.id }/{ cover.filename }.256.jpg
+        //         var coverId = item.Relationships.First(x => x.Type == MdConstants.CoverArt).Id;
+        //         // item.Attributes.Cover256 = $"{MdConstants.ApiCover256Url}/{item.Id}/{coverId}.256.jpg";
+        //         var coverData = await MdClient.GetCover(coverId);
+        //         item.Attributes.Cover256 = $"{MdConstants.ApiCover256Url}/{item.Id}/{coverData.Data.Attributes.FileName}.256.jpg";
+        //
+        //         // get cover filenam by cover id
+        //     }
+        //     
+        //     MangaList.AddRange(data.Data);
+        //
+        //     // var t = "";
+        // }
 
         public void TestData()
         {

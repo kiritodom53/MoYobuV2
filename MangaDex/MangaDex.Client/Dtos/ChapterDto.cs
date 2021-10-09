@@ -20,7 +20,7 @@ namespace MangaDex.Client.Dtos
         public string Hash { get; set; }
         public List<string> Data { get; set; }
         public List<string> DataSaver { get; set; }
-        public string Uploader { get; set; }
+        // public string Uploader { get; set; }
         public string ExternalUrl { get; set; }
         public int Version { get; set; }
         public string CreatedAt { get; set; }

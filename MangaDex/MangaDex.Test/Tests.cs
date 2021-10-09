@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MangaDex.Client;
+using MangaDex.Client.Dtos;
 using MangaDex.Client.Filter;
+using MangaDex.Client.Helpers;
 using NUnit.Framework;
 
 namespace MangaDex.Test
@@ -10,6 +12,25 @@ namespace MangaDex.Test
     [TestFixture]
     public class Tests
     {
+        [Test]
+        public async Task TestListChapter()
+        {
+            MdClient client = new MdClient();
+
+            QueryParameters qp = new QueryParameters()
+            {
+                { "translatedLanguage[]", "en" }
+            };
+
+            var data = await client.GetAllMangaChapters("a2febd3e-6252-46eb-bd63-01d51deaaec5", qp);
+
+            
+            foreach (var item in data)
+            {
+                Console.WriteLine(item.Attributes.Title);
+            }
+        }
+        
         [Test]
         public async Task TestGetCover()
         {
