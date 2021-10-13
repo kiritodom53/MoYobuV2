@@ -56,6 +56,7 @@ namespace MoYobuV2.Views
             MangaStatus.Text = _manga.Attributes.Status;
             MangaDescription.Text = _manga.Attributes.Description.En;
 
+            // Todo: kliknutí zobrazí mangy s daným tagem
             foreach (var tag in _manga.Attributes.Tags)
             {
                 Tags.Items.Add(new SfChip() { Text = tag.Attributes.Name.En, Margin = new Thickness(3)});

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace MangaDex.Client.Dtos
 {
@@ -13,9 +14,26 @@ namespace MangaDex.Client.Dtos
 
     public class ChapterAttributeDto
     {
+        private string _chapter;
+        
         public string Title { get; set; }
         public string Volume { get; set; }
-        public string Chapter { get; set; }
+
+        [JsonIgnore]
+        public double ChapterD { get; set; }
+        [JsonProperty("chapter")]
+        public string Chapter
+        {
+            get { return _chapter; }
+            set
+            {
+                _chapter = value;
+                // Todo: vyřešit převod na double s tečkou
+                if (!string.IsNullOrEmpty(value))
+                    ChapterD = double.Parse(value.Replace('.', ','));
+            }
+        }
+
         public string TranslatedLanguage { get; set; }
         public string Hash { get; set; }
         public List<string> Data { get; set; }

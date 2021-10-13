@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MangaDex.Client;
 using MangaDex.Client.Dtos;
@@ -13,6 +14,16 @@ namespace MangaDex.Test
     public class Tests
     {
         [Test]
+        public async Task TestAtHome()
+        {
+            MdClient client = new MdClient();
+
+            var data = await client.AtHome("90207714-3d03-4f1b-b9cd-0b0c088d7369");
+
+            Console.WriteLine(data.BaseUrl);
+        }
+        
+        [Test]
         public async Task TestListChapter()
         {
             MdClient client = new MdClient();
@@ -24,10 +35,11 @@ namespace MangaDex.Test
 
             var data = await client.GetAllMangaChapters("a2febd3e-6252-46eb-bd63-01d51deaaec5", qp);
 
-            
+           data = data.OrderBy(x => x.Attributes.ChapterD).ToList();
+           Console.WriteLine(data.Count);
             foreach (var item in data)
             {
-                Console.WriteLine(item.Attributes.Title);
+                Console.WriteLine(item.Attributes.Chapter);
             }
         }
         

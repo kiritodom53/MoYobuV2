@@ -91,7 +91,7 @@ namespace MangaDex.Client.Helpers
         {
             StringBuilder sb = new StringBuilder();
 
-            if (data != null)
+            if (data != null && data.Any())
             {
                 foreach (KeyValuePair<string, string> entry in data)
                     sb.Append(entry.Key).Append("=").Append(entry.Value).Append("&");

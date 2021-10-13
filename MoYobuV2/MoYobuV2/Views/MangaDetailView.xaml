@@ -131,7 +131,7 @@
                 <Label x:Name="frontLayerheader" Text="Chapters" TextColor="White" VerticalTextAlignment="Center"
                        HeightRequest="48" />
                 <xForms:SfListView x:Name="MangaChaptersListView"
-                                   ItemSize="50"
+                                   ItemSize="75"
                                    ItemsSource="{Binding Chapters}"
                                    SelectionBackgroundColor="Transparent">
                     <xForms:SfListView.LayoutManager>
@@ -141,13 +141,20 @@
                         <DataTemplate>
                             <Grid>
                                 <StackLayout BackgroundColor="{StaticResource BgColor}" Margin="0,5,0,5">
-                                    <Label Text="{Binding Attributes.Title}"
+                                    <Label Text="{Binding Attributes.Chapter}"
                                            VerticalTextAlignment="Center"
                                            TextColor="White"
                                            FontSize="16"
                                            VerticalOptions="Center"
                                            HorizontalOptions="FillAndExpand"
                                            Margin="5" />
+                                <Label Text="{Binding Attributes.Title}"
+                                       VerticalTextAlignment="Center"
+                                       TextColor="White"
+                                       FontSize="16"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="FillAndExpand"
+                                       Margin="5" />
                                 </StackLayout>
                             </Grid>
                         </DataTemplate>

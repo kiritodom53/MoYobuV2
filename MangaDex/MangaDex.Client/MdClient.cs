@@ -24,8 +24,12 @@ namespace MangaDex.Client
         // Todo: img server
         // https://uploads.mangadex.org/<token?>/<data/data-saver>/<chapter_hash>/<filename>
 
-        // Todo: server pro kapitoly
+        // server pro kapitoly
         // https://api.mangadex.org/at-home/server/<chapterId>
+        public async Task<AtHomeDto> AtHome(string chapterId)
+        {
+            return await Get<AtHomeDto>(new AtHomeEndpoint(chapterId));
+        }
 
         // podle offsetu sebrat všechno
 
@@ -71,6 +75,7 @@ namespace MangaDex.Client
                     { "offset", offset.ToString() }
                 };
                 var temp = await Get<ResultObject<List<ChapterDto>>>(new ChapterListEndpoint(), qTemp);
+                dd.AddRange(temp.Data);
             }
 
             return dd;
@@ -124,6 +129,9 @@ namespace MangaDex.Client
         private async Task<T> Get<T>(Endpoint endpoint, QueryParameters parameters = null,
             string baseUrl = MdConstants.ApiUrl)
         {
+            if (parameters == null)
+                parameters = new QueryParameters();
+            
             string url = BuildUrl($"{baseUrl}/{endpoint.GetUrl()}", parameters);
 
             HttpResponseMessage response =

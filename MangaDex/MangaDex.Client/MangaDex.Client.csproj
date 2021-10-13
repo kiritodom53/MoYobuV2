@@ -72,11 +72,13 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Dtos\AtHomeDto.cs" />
         <Compile Include="Dtos\ChapterDto.cs" />
         <Compile Include="Dtos\CoverDto.cs" />
         <Compile Include="Dtos\MangaDto.cs" />
         <Compile Include="Dtos\ResultObject.cs" />
         <Compile Include="Dtos\TagsDto.cs" />
+        <Compile Include="Endpoints\AtHomeEndpoint.cs" />
         <Compile Include="Endpoints\ChapterListEndpoint.cs" />
         <Compile Include="Endpoints\Endpoint.cs" />
         <Compile Include="Endpoints\GetCoverEndpoint.cs" />
