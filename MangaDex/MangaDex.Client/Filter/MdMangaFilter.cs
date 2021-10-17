@@ -21,6 +21,8 @@ namespace MangaDex.Client.Filter
 
         #region Properties
 
+        public string Title { get; set; }
+
         #region Original Language
 
         public bool OriginalLanguageJapanese { get; set; }
@@ -149,7 +151,14 @@ namespace MangaDex.Client.Filter
 
         #region Setters
 
-        #region Original Language
+        public MdMangaFilter SetTitle(string title)
+        {
+            Title = string.IsNullOrEmpty(title) ? string.Empty : title;
+            return this;
+        }
+    
+
+    #region Original Language
 
         public MdMangaFilter SetOriginalLanguageJapanese(bool value = true)
         {
@@ -760,6 +769,12 @@ namespace MangaDex.Client.Filter
 
         #region Build parts
 
+        private void BuildTitle()
+        {
+            if (!string.IsNullOrEmpty(Title))
+                _parametersParams.Add("title", Title);
+        }
+
         private void BuildOriginalLanguage()
         {
             if (Helper.IsBoolValuesSame(OriginalLanguageJapanese, OriginalLanguageKorean, OriginalLanguageChinese))
@@ -1227,6 +1242,7 @@ namespace MangaDex.Client.Filter
             _parametersParams.Add("offset", Offset.ToString());
             _parametersParams.Add("limit", Limit.ToString());
 
+            BuildTitle();
             BuildOriginalLanguage();
             BuildDemographic();
             BuldContentRating();

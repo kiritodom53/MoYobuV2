@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using FFImageLoading.Forms.Platform;
 
 namespace MoYobuV2.Android
 {
@@ -19,6 +20,8 @@ namespace MoYobuV2.Android
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            // CachedImageRenderer.InitImageViewHandler();
+            CachedImageRenderer.Init(enableFastRenderer: true); 
             LoadApplication(new App());
         }
     }

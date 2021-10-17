@@ -1,0 +1,171 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DebugType>pdbonly</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Resources\Chapters" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\001.png" />
+      <EmbeddedResource Include="Resources\002.png" />
+      <EmbeddedResource Include="Resources\003.png" />
+      <EmbeddedResource Include="Resources\004.png" />
+      <EmbeddedResource Include="Resources\005.png" />
+      <EmbeddedResource Include="Resources\006.png" />
+      <EmbeddedResource Include="Resources\007.png" />
+      <EmbeddedResource Include="Resources\008.png" />
+      <EmbeddedResource Include="Resources\009.png" />
+      <EmbeddedResource Include="Resources\010.png" />
+      <EmbeddedResource Include="Resources\011.png" />
+      <EmbeddedResource Include="Resources\012.png" />
+      <EmbeddedResource Include="Resources\013.png" />
+      <EmbeddedResource Include="Resources\014.png" />
+      <EmbeddedResource Include="Resources\015.png" />
+      <EmbeddedResource Include="Resources\016.png" />
+      <EmbeddedResource Include="Resources\017.png" />
+      <EmbeddedResource Include="Resources\018.png" />
+      <EmbeddedResource Include="Resources\019.png" />
+      <EmbeddedResource Include="Resources\020.png" />
+      <EmbeddedResource Include="Resources\021.png" />
+      <EmbeddedResource Include="Resources\022.png" />
+      <EmbeddedResource Include="Resources\023.png" />
+      <EmbeddedResource Include="Resources\024.png" />
+      <EmbeddedResource Include="Resources\025.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\001.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\001.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\002.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\002.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\003.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\003.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\004.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\004.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\005.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\005.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\006.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\006.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\007.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\007.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\008.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\008.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\009.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\009.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\010.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\010.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\011.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\011.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\012.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\012.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\013.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\013.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\014.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\014.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\015.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\015.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\016.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\016.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\017.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\017.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\018.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\018.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\019.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\019.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\020.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\020.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\021.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\021.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\022.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\022.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\023.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\023.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\024.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\024.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\025.png" />
+      <EmbeddedResource Include="Resources\Chapters\Grand Blue\_Chapter 1\025.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\026.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\027.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\028.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\029.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\030.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\031.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\032.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\033.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\034.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\035.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\036.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\037.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\038.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\039.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\040.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\041.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\042.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\043.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\044.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\045.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\046.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\047.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\048.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\049.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\050.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\051.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 1\052.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\001.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\002.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\003.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\004.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\005.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\006.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\007.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\008.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\009.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\010.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\011.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\012.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\013.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\014.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\015.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\016.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\017.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\018.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\019.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\020.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\021.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\022.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\023.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\024.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\025.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\026.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\027.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\028.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\029.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\030.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\031.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\032.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\033.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\034.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\035.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\036.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\037.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\038.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\039.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\040.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\041.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\042.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\043.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\044.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\045.png" />
+      <None Remove="Resources\Chapters\Grand Blue\_Chapter 2\046.png" />
+    </ItemGroup>
+</Project>

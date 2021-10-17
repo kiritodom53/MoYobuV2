@@ -19,50 +19,77 @@
         <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.3.0.43" />
+        <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+        <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
     </ItemGroup>
 
     <ItemGroup>
+      <EmbeddedResource Include="Images\001.png" />
+      <EmbeddedResource Include="Images\002.png" />
+      <EmbeddedResource Include="Images\003.png" />
+      <EmbeddedResource Include="Images\004.png" />
+      <EmbeddedResource Include="Images\005.png" />
+      <EmbeddedResource Include="Images\006.png" />
+      <EmbeddedResource Include="Images\007.png" />
+      <EmbeddedResource Include="Images\008.png" />
+      <EmbeddedResource Include="Images\009.png" />
+      <EmbeddedResource Include="Images\010.png" />
+      <EmbeddedResource Include="Images\011.png" />
+      <EmbeddedResource Include="Images\012.png" />
+      <EmbeddedResource Include="Images\013.png" />
+      <EmbeddedResource Include="Images\014.png" />
+      <EmbeddedResource Include="Images\015.png" />
+      <EmbeddedResource Include="Images\016.png" />
+      <EmbeddedResource Include="Images\017.png" />
+      <EmbeddedResource Include="Images\018.png" />
+      <EmbeddedResource Include="Images\019.png" />
+      <EmbeddedResource Include="Images\020.png" />
+      <EmbeddedResource Include="Images\021.png" />
+      <EmbeddedResource Include="Images\022.png" />
+      <EmbeddedResource Include="Images\023.png" />
+      <EmbeddedResource Include="Images\024.png" />
+      <EmbeddedResource Include="Images\025.png" />
+      <EmbeddedResource Include="Images\nums\1.png" />
+      <EmbeddedResource Include="Images\nums\10.png" />
+      <EmbeddedResource Include="Images\nums\11.png" />
+      <EmbeddedResource Include="Images\nums\12.png" />
+      <EmbeddedResource Include="Images\nums\13.png" />
+      <EmbeddedResource Include="Images\nums\14.png" />
+      <EmbeddedResource Include="Images\nums\15.png" />
+      <EmbeddedResource Include="Images\nums\16.png" />
+      <EmbeddedResource Include="Images\nums\17.png" />
+      <EmbeddedResource Include="Images\nums\18.png" />
+      <EmbeddedResource Include="Images\nums\19.png" />
+      <EmbeddedResource Include="Images\nums\2.png" />
+      <EmbeddedResource Include="Images\nums\20.png" />
+      <EmbeddedResource Include="Images\nums\3.png" />
+      <EmbeddedResource Include="Images\nums\4.png" />
+      <EmbeddedResource Include="Images\nums\5.png" />
+      <EmbeddedResource Include="Images\nums\6.png" />
+      <EmbeddedResource Include="Images\nums\7.png" />
+      <EmbeddedResource Include="Images\nums\8.png" />
+      <EmbeddedResource Include="Images\nums\9.png" />
       <None Remove="Images\1.png" />
-      <EmbeddedResource Include="Images\1.png" />
       <None Remove="Images\10.png" />
-      <EmbeddedResource Include="Images\10.png" />
       <None Remove="Images\11.png" />
-      <EmbeddedResource Include="Images\11.png" />
       <None Remove="Images\12.png" />
-      <EmbeddedResource Include="Images\12.png" />
       <None Remove="Images\13.png" />
-      <EmbeddedResource Include="Images\13.png" />
       <None Remove="Images\14.png" />
-      <EmbeddedResource Include="Images\14.png" />
       <None Remove="Images\15.png" />
-      <EmbeddedResource Include="Images\15.png" />
       <None Remove="Images\16.png" />
-      <EmbeddedResource Include="Images\16.png" />
       <None Remove="Images\17.png" />
-      <EmbeddedResource Include="Images\17.png" />
       <None Remove="Images\18.png" />
-      <EmbeddedResource Include="Images\18.png" />
       <None Remove="Images\19.png" />
-      <EmbeddedResource Include="Images\19.png" />
       <None Remove="Images\2.png" />
-      <EmbeddedResource Include="Images\2.png" />
       <None Remove="Images\20.png" />
-      <EmbeddedResource Include="Images\20.png" />
       <None Remove="Images\3.png" />
-      <EmbeddedResource Include="Images\3.png" />
       <None Remove="Images\4.png" />
-      <EmbeddedResource Include="Images\4.png" />
       <None Remove="Images\5.png" />
-      <EmbeddedResource Include="Images\5.png" />
       <None Remove="Images\6.png" />
-      <EmbeddedResource Include="Images\6.png" />
       <None Remove="Images\7.png" />
-      <EmbeddedResource Include="Images\7.png" />
       <None Remove="Images\8.png" />
-      <EmbeddedResource Include="Images\8.png" />
       <None Remove="Images\9.png" />
-      <EmbeddedResource Include="Images\9.png" />
     </ItemGroup>
 
     <ItemGroup>

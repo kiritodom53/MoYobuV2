@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using MangaDex.Client.Dtos;
 using MoYobuV2.ViewModels;
 using Syncfusion.ListView.XForms;
@@ -13,6 +14,9 @@ namespace MoYobuV2.Views.TabbedPage
     public partial class SearchPage : SfTabItem
     {
         private readonly SearchPageViewModel _viewModel;
+        
+        // Todo: Pokud, už nenajde další mangu zakázat infinit load
+        
         public SearchPage()
         {
             InitializeComponent();
@@ -22,7 +26,9 @@ namespace MoYobuV2.Views.TabbedPage
             // _viewModel.TestData();
             // _viewModel.TestData();
             // _viewModel.TestData();
-            _viewModel.LoadFirst();
+            
+            // _viewModel.LoadFirst();
+            
             // MangaListView.IsBusy = false;
         }
 
@@ -73,6 +79,16 @@ namespace MoYobuV2.Views.TabbedPage
         {
             navigationDrawer.ToggleDrawer();
 
+            await Search();
+        }
+
+        private async void SearchManga_OnSearchButtonPressed(object sender, EventArgs e)
+        {
+            await Search();
+        }
+
+        private async Task Search()
+        {
             _viewModel.MangaList.Clear();
             _viewModel.Filter.Offset = 0;
             _viewModel.Offset = 0;

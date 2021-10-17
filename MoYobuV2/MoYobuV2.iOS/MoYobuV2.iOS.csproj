@@ -115,6 +115,8 @@
         <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.3.0.43" />
+        <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+        <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
     </ItemGroup>
     <ItemGroup>

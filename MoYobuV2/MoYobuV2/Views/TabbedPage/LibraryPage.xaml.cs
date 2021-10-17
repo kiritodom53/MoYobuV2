@@ -16,14 +16,7 @@ namespace MoYobuV2.Views.TabbedPage
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
-            MdClient md = new MdClient();
-            var data = await md.SearchManga();
-            var mangaList = data.Data;
-
-            foreach (var manga in mangaList)
-            {
-                Debug.WriteLine(manga.Attributes.Title.En);
-            }
+            await Navigation.PushAsync(new ChapterViewer());
         }
     }
 }

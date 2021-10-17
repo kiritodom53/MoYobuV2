@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Policy;
 using Newtonsoft.Json;
 
 namespace MangaDex.Client.Dtos
@@ -31,6 +33,8 @@ namespace MangaDex.Client.Dtos
         public string UpdatedAt { get; set; }
         [JsonIgnore]
         public string Cover256 { get; set; }
+        [JsonIgnore]
+        public Uri Cover256Uri { get; set; }
         //https://uploads.mangadex.org/covers/{ manga.id }/{ cover.filename }.256.jpg
     }
     

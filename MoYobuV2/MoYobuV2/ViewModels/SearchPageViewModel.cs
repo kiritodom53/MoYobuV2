@@ -1,7 +1,12 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using FFImageLoading;
+using FFImageLoading.Forms;
 using MangaDex.Client;
 using MangaDex.Client.Dtos;
 using MangaDex.Client.Filter;
@@ -28,6 +33,8 @@ namespace MoYobuV2.ViewModels
         #endregion
 
         #region Filter
+
+        private string _title;
 
         // Original language
         private bool _originalLanguageJapanese;
@@ -170,6 +177,15 @@ namespace MoYobuV2.ViewModels
         #endregion
 
         #region Filter
+
+        public string Title
+        {
+            get => _title;
+            set => SetProperty(ref _title,
+                value,
+                nameof(Title),
+                () => { Filter.Title = value; });
+        }
 
         #region Original language
 
@@ -955,15 +971,38 @@ namespace MoYobuV2.ViewModels
         public ObservableRangeCollection<MangaDto> MangaList { get; set; }
         public MdMangaFilter Filter { get; set; }
         public MdClient MdClient { get; set; }
-        
+
         public int Offset { get; set; } = 0;
-        
+
+        // private HttpClient _http = null;
 
         public ICommand LoadMoreCommand { get; }
         // private SearchPage _searchPage;
 
         public SearchPageViewModel()
         {
+            // if(_http == null)
+            // {
+            //     HttpClientHandler handler = new HttpClientHandler()
+            //     {
+            //         AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
+            //     };        
+            //     _http = new HttpClient(handler);
+            // }
+            //
+            // var config = new FFImageLoading.Config.Configuration()
+            // {
+            //     ExecuteCallbacksOnUIThread = true,
+            //     HttpClient = _http,
+            //
+            // };
+            // ImageService.Instance.Initialize(config);
+
+            // CachedImage c = new CachedImage();
+
+            // c.Source = ImageSource.FromUri();
+
+
             MdClient = new MdClient();
             MangaList = new ObservableRangeCollection<MangaDto>();
             Filter = new MdMangaFilter();
@@ -991,8 +1030,13 @@ namespace MoYobuV2.ViewModels
                 var coverId = item.Relationships.First(x => x.Type == MdConstants.CoverArt).Id;
                 // item.Attributes.Cover256 = $"{MdConstants.ApiCover256Url}/{item.Id}/{coverId}.256.jpg";
                 var coverData = await MdClient.GetCover(coverId);
+                // "https://uploads.mangadex.org/covers/95929ed7-6b14-4ce4-820c-3ece99eeccba/7dbca5f9-9fa1-4296-8315-9fd906814911.png.256.jpg";
+                // string temp = $"{MdConstants.ApiCover256Url}/{item.Id}/{coverData.Data.Attributes.FileName}.256.jpg";
                 item.Attributes.Cover256 =
                     $"{MdConstants.ApiCover256Url}/{item.Id}/{coverData.Data.Attributes.FileName}.256.jpg";
+                item.Attributes.Cover256Uri = new Uri(item.Attributes.Cover256);
+
+                string tempUri = item.Attributes.Cover256;
 
                 // get cover filenam by cover id
             }
