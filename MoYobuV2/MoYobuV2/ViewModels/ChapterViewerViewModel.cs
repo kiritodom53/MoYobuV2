@@ -24,16 +24,22 @@ namespace MoYobuV2.ViewModels
             CachedImages = new ObservableRangeCollection<CachedImage>();
             Images = new ObservableRangeCollection<TempClass>();
 
-            for (int i = 1; i <= 20; i++)
+            for (int i = 1; i <= 1; i++)
             {
-                
+                // Aspect="AspectFill"
+                // DownsampleToViewSize="true"
+                // BitmapOptimizations="False"
+                // HorizontalOptions="FillAndExpand"
+                // Margin="5"
                 var cachedImage = new CachedImage()
                 {
-                    HorizontalOptions = LayoutOptions.Center,
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
                     VerticalOptions = LayoutOptions.Center,
                     Aspect = Aspect.AspectFill,
-                    Source = ImageSource.FromResource($"MoYobuV2.Images.{i:D3}.png")
-                    // Source = ImageSource.FromUri(new Uri("https://uploads.mangadex.org/covers/95929ed7-6b14-4ce4-820c-3ece99eeccba/7dbca5f9-9fa1-4296-8315-9fd906814911.png.256.jpg"))
+                    DownsampleToViewSize = true,
+                    BitmapOptimizations = false,
+                    // Source = ImageSource.FromResource($"MoYobuV2.Images.{i:D3}.png")
+                    Source = ImageSource.FromUri(new Uri("https://uploads.mangadex.org//covers/fffbfac3-b7ad-41ee-9581-b4d90ecec941/3787d628-0387-43ea-b732-3b9015584c0b.jpg.256.jpg"))
                 };
 
                 CachedImages.Add(cachedImage);

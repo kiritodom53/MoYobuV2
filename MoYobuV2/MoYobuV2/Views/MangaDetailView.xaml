@@ -6,6 +6,7 @@
                          xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
                          xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
                          xmlns:viewModels="clr-namespace:MoYobuV2.ViewModels;assembly=MoYobuV2"
+                         xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                          BackgroundColor="{StaticResource BgColor}"
                          IsBackLayerRevealed="True"
                          x:Class="MoYobuV2.Views.MangaDetailView">
@@ -39,11 +40,12 @@
                                    Padding="0"
                                    BorderColor="Transparent"
                                    IsClippedToBounds="True">
-                                <Image x:Name="MangaImg"
-                                       Aspect="AspectFill"
-                                       WidthRequest="90"
-                                       HeightRequest="210"
-                                       HorizontalOptions="FillAndExpand" />
+                                <ffimageloading:CachedImage x:Name="MangaImg"
+                                                            Aspect="AspectFill"
+                                                            DownsampleToViewSize="True"
+                                                            WidthRequest="90"
+                                                            HeightRequest="210"
+                                                            HorizontalOptions="FillAndExpand" />
                             </Frame>
 
 

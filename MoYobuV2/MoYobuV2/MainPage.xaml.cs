@@ -13,7 +13,7 @@ namespace MoYobuV2
 {
     public partial class MainPage : ContentPage
     {
-        // private HttpClient _http = null;
+        private HttpClient _httpClient = null;
 
         public MainPage()
         {
@@ -27,11 +27,26 @@ namespace MoYobuV2
             //     _http = new HttpClient(handler);
             // }
             //
+            
+            var handler = new HttpClientHandler();
+            handler.ClientCertificateOptions = ClientCertificateOption.Manual;
+            handler.ServerCertificateCustomValidationCallback = 
+                (httpRequestMessage, cert, cetChain, policyErrors) => true;
+
+            _httpClient = new HttpClient(handler);
+            
+            
+            // ImageService.Instance.Initialize(new Configuration
+            // {
+            //     HttpClient = client
+            // }); 
+            
+            
             var config = new FFImageLoading.Config.Configuration()
             {
                 VerboseLogging = true,
                 ExecuteCallbacksOnUIThread = true,
-                // HttpClient = _http,
+                HttpClient = _httpClient,
                 Logger = new CustomFFLoger()
             };
             

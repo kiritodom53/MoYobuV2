@@ -13,7 +13,7 @@
                    xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
                    xmlns:tabbedPage="clr-namespace:MoYobuV2.Views.TabbedPage;assembly=MoYobuV2"
                    xmlns:helpers="clr-namespace:MoYobuV2.Helpers;assembly=MoYobuV2"
-                   xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                   xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                    NavigationPage.HasNavigationBar="false"
                    x:Class="MoYobuV2.Views.TabbedPage.SearchPage"
                    Title="Search">
@@ -98,13 +98,14 @@
                                         <!-- <StackLayout.GestureRecognizers> -->
                                         <!--     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" /> -->
                                         <!-- </StackLayout.GestureRecognizers> -->
-                                        <forms:CachedImage x:Name="mangaImage2"
-                                                     Aspect="AspectFill"
-                                                     DownsampleToViewSize="true"
-                                                     BitmapOptimizations="False"
-                                                     HorizontalOptions="FillAndExpand"
-                                                     Margin="5"
-                                                     Source="{Binding Attributes.Cover256Uri}" />
+                                        <ffimageloading:CachedImage x:Name="mangaImage2"
+                                                                    Aspect="AspectFill"
+                                                                    DownsampleToViewSize="True"
+                                                                    LoadingPlaceholder="outline_schedule_white_36.png"
+                                                                    BitmapOptimizations="True"
+                                                                    HorizontalOptions="FillAndExpand"
+                                                                    Margin="5"
+                                                                    Source="{Binding Attributes.Cover256Uri}" />
                                         <Label Text="{Binding Attributes.Title.En}"
                                                VerticalTextAlignment="End"
                                                BackgroundColor="#B44F4F4F"
