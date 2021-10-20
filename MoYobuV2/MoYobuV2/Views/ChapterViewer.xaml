@@ -5,70 +5,66 @@
              xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:viewModels="clr-namespace:MoYobuV2.ViewModels;assembly=MoYobuV2"
              xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Padding="0"
              x:Class="MoYobuV2.Views.ChapterViewer">
     <!-- <ContentPage.BindingContext> -->
     <!--     <viewModels:ChapterViewerViewModel /> -->
     <!-- </ContentPage.BindingContext> -->
     <ContentPage.Content>
         <!-- Todo: Použít list view, viz. zde: https://github.com/luberda-molinet/FFImageLoading/wiki/Advanced-Usage#scroll-high-performances -->
-        <ScrollView x:Name="Scroll" Margin="0" Padding="0" BackgroundColor="Aquamarine">
-            <!-- <StackLayout x:Name="ImagesContainer" BackgroundColor="Black" Margin="0" Padding="0" -->
-            <!-- HorizontalOptions="FillAndExpand" -->
-            <!-- VerticalOptions="FillAndExpand" /> -->
-            <StackLayout x:Name="ImagesContainer" BackgroundColor="LightPink" Margin="0" Padding="0"
-                         HorizontalOptions="FillAndExpand"
-                         VerticalOptions="FillAndExpand">
-                <!-- <Grid BackgroundColor="Black" Margin="0" Padding="0" -->
-                <!--       HorizontalOptions="FillAndExpand" -->
-                <!--       VerticalOptions="FillAndExpand" /> -->
-            </StackLayout>
-        </ScrollView>
-        
-        
-        
+        <!-- <ScrollView x:Name="Scroll" Margin="0" Padding="0" BackgroundColor="Aquamarine"> -->
+        <!--     ~1~ <StackLayout x:Name="ImagesContainer" BackgroundColor="Black" Margin="0" Padding="0" @1@ -->
+        <!--     ~1~ HorizontalOptions="FillAndExpand" @1@ -->
+        <!--     ~1~ VerticalOptions="FillAndExpand" /> @1@ -->
+        <!--     <StackLayout x:Name="ImagesContainer" BackgroundColor="LightPink" Margin="0" Padding="0" -->
+        <!--                  HorizontalOptions="FillAndExpand" -->
+        <!--                  VerticalOptions="FillAndExpand"> -->
+        <!--         ~1~ <Grid BackgroundColor="Black" Margin="0" Padding="0" @1@ -->
+        <!--         ~1~       HorizontalOptions="FillAndExpand" @1@ -->
+        <!--         ~1~       VerticalOptions="FillAndExpand" /> @1@ -->
+        <!--     </StackLayout> -->
+        <!-- </ScrollView> -->
+
+
         <!-- AutoFitMode="DynamicHeight" -->
-        
-        
-        <!-- <xForms:SfListView x:Name="listView" -->
-        <!--                    AutoFitMode="DynamicHeight" -->
-        <!--                    ItemsSource="{Binding Images}"> -->
-        <!--     ~1~ <xForms:SfListView.LayoutManager> @1@ -->
-        <!--     ~1~ <xForms:GridLayout SpanCount="1" /> @1@ -->
-        <!--     ~1~ </xForms:SfListView.LayoutManager> @1@ -->
-        <!--     <xForms:SfListView.ItemTemplate> -->
-        <!--         <DataTemplate> -->
-        <!--             <StackLayout x:Name="ImagesContainer" BackgroundColor="LightPink" Margin="0" Padding="0" -->
-        <!--                          HorizontalOptions="FillAndExpand" -->
-        <!--                          VerticalOptions="FillAndExpand"> -->
-        <!--                 <Grid -->
-        <!--                     BackgroundColor="Aquamarine" -->
-        <!--                     VerticalOptions="FillAndExpand" -->
-        <!--                     HorizontalOptions="FillAndExpand"> -->
-        <!--                     ~1~ <Frame @1@ -->
-        <!--                     ~1~ Padding="0" @1@ -->
-        <!--                     ~1~ BorderColor="Transparent" @1@ -->
-        <!--                     ~1~ IsClippedToBounds="True"> @1@ -->
-        <!--                     ~1~ <Frame Padding="0" Margin="0"> @1@ -->
-        <!--                     ~1~ <Image Source="sample.jpg" Aspect="AspectFill" /> @1@ -->
-        <!--                     ~1~ <Image @1@ -->
-        <!--                     ~1~     Aspect="AspectFill" @1@ -->
-        <!--                     ~1~     HeightRequest="{Binding Img.Height}" @1@ -->
-        <!--                     ~1~     Source="{Binding Img.Source}" /> @1@ -->
-        <!--                     <forms:CachedImage -->
-        <!--                         HorizontalOptions="Center" -->
-        <!--                         VerticalOptions="Center" -->
-        <!--                         Aspect="AspectFill" -->
-        <!--                         Source="{Binding ImgSource}" /> -->
-        <!--                     ~1~ </Frame> @1@ -->
-        <!--                     ~1~ <Image @1@ -->
-        <!--                     ~1~     Aspect="AspectFit" @1@ -->
-        <!--                     ~1~     Margin="0" @1@ -->
-        <!--                     ~1~     Source="{Binding Img}" /> @1@ -->
-        <!--                     ~1~ </Frame> @1@ -->
-        <!--                 </Grid> -->
-        <!--             </StackLayout> -->
-        <!--         </DataTemplate> -->
-        <!--     </xForms:SfListView.ItemTemplate> -->
-        <!-- </xForms:SfListView> -->
+
+
+        <!-- <xForms:SfListView x:Name="ChapterPages" -->
+        <xForms:SfListView x:Name="ChapterPages"
+                           Padding="0"
+                           Margin="0"
+                           AutoFitMode="DynamicHeight"
+                           ScrollStateChanged="ChapterPages_OnScrollStateChanged"
+                           ItemsSource="{Binding Images}">
+            <!-- <xForms:SfListView.LayoutManager> -->
+            <!--     <xForms:GridLayout SpanCount="3" /> -->
+            <!-- </xForms:SfListView.LayoutManager> -->
+            <xForms:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <!-- <Grid x:Name="GridContainer"> -->
+                        <StackLayout x:Name="ImagesContainer"
+                                     BackgroundColor="LightPink" 
+                                     Margin="0" 
+                                     Padding="0"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand">
+                                     <!-- HeightRequest="600" -->
+                            <forms:CachedImage x:Name="chapterPageImage"
+                                               Aspect="AspectFit"
+                                               
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalOptions="End"
+                                               DownsampleUseDipUnits="False"
+                                               Success="ChapterPageImage_OnSuccess"
+                                               DownsampleToViewSize="True"
+                                               LoadingPlaceholder="outline_schedule_white_36.png"
+                                               BitmapOptimizations="True"
+                                               Margin="1"
+                                               Source="{Binding Uri}" />
+                        </StackLayout>
+                    <!-- </Grid> -->
+                </DataTemplate>
+            </xForms:SfListView.ItemTemplate>
+        </xForms:SfListView>
     </ContentPage.Content>
 </ContentPage>

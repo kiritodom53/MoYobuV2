@@ -34,7 +34,7 @@ namespace MoYobuV2.ViewModels
 
         #region Filter
 
-        private string _title;
+        private string _title = "Grand Blue"; // Todo: Remove
 
         // Original language
         private bool _originalLanguageJapanese;
@@ -971,47 +971,24 @@ namespace MoYobuV2.ViewModels
         public ObservableRangeCollection<MangaDto> MangaList { get; set; }
         public MdMangaFilter Filter { get; set; }
         public MdClient MdClient { get; set; }
-
         public int Offset { get; set; } = 0;
-
-        // private HttpClient _http = null;
-
         public ICommand LoadMoreCommand { get; }
+
+        private bool _hasNextPage = true;
+        private bool canLoad = true;
         // private SearchPage _searchPage;
 
         public SearchPageViewModel()
         {
-            // if(_http == null)
-            // {
-            //     HttpClientHandler handler = new HttpClientHandler()
-            //     {
-            //         AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
-            //     };        
-            //     _http = new HttpClient(handler);
-            // }
-            //
-            // var config = new FFImageLoading.Config.Configuration()
-            // {
-            //     ExecuteCallbacksOnUIThread = true,
-            //     HttpClient = _http,
-            //
-            // };
-            // ImageService.Instance.Initialize(config);
-
-            // CachedImage c = new CachedImage();
-
-            // c.Source = ImageSource.FromUri();
-
-
             MdClient = new MdClient();
             MangaList = new ObservableRangeCollection<MangaDto>();
             Filter = new MdMangaFilter();
             LoadMoreCommand = new AsyncCommand<object>(LoadMore);
         }
 
-        public async Task LoadMore(object obj)
+        private async Task LoadMore(object obj)
         {
-            if (IsBusy)
+            if (IsBusy || !canLoad)
                 return;
 
             var listView = obj as Syncfusion.ListView.XForms.SfListView;
@@ -1022,7 +999,30 @@ namespace MoYobuV2.ViewModels
             Offset += Filter.Limit;
             var data = await MdClient.SearchManga(Filter.Build());
 
+
+            if (data.Offset > data.Total)
+            {
+                IsBusy = false;
+                listView.IsBusy = false;
+                canLoad = false;
+                return;
+            }
+
+
+            if (!data.Data.Any())
+            {
+                IsBusy = false;
+                listView.IsBusy = false;
+                return;
+            }
+
+
             Debug.WriteLine($"Filter offset: {Filter.Offset} - _offest: {Offset}");
+
+            // _hasNextPage = data.Data.Any();
+
+            // if (!_hasNextPage)
+            // return;
 
             foreach (var item in data.Data)
             {
@@ -1036,13 +1036,14 @@ namespace MoYobuV2.ViewModels
                     $"{MdConstants.ApiCover256Url}/{item.Id}/{coverData.Data.Attributes.FileName}.256.jpg";
                 item.Attributes.Cover256Uri = new Uri(item.Attributes.Cover256);
 
-                string tempUri = item.Attributes.Cover256;
+                // string tempUri = item.Attributes.Cover256;
 
                 // get cover filenam by cover id
             }
 
             MangaList.AddRange(data.Data);
 
+            // _hasNextPage = data.HasNextPage;
             IsBusy = false;
             listView.IsBusy = false;
         }
@@ -1107,6 +1108,114 @@ namespace MoYobuV2.ViewModels
             {
                 // MangaList.Add(new Manga("Manga title", ImageSource.FromResource($"MoYobuV2.Images.{i}.png")));
             }
+        }
+
+        public void ClearList()
+        {
+            _hasNextPage = true;
+            canLoad = true;
+            MangaList.Clear();
+            Filter.Offset = 0;
+            Offset = 0;
+        }
+
+        public void ResetFilter()
+        {
+            Title = string.Empty;
+            OriginalLanguageJapanese = false;
+            OriginalLanguageKorean = false;
+            OriginalLanguageChinese = false;
+            DemographicNone = false;
+            DemographicShounen = false;
+            DemographicShoujo = false;
+            DemographicSeinen = false;
+            DemographicJosei = false;
+            ContentRatingSafe = false;
+            ContentRatingSuggestive = false;
+            ContentRatingErotica = false;
+            ContentRatingPornographic = false;
+            StatusOngoing = false;
+            StatusCompleted = false;
+            StatusHiatus = false;
+            StatusAbandoned = false;
+            // IncludeTagMode = "And";
+            // ExcludeTagMode = "Or";
+            TagAction = false;
+            TagAdaptation = false;
+            TagAdventure = false;
+            TagAliens = false;
+            TagAnimals = false;
+            TagAnthology = false;
+            TagAwardWinning = false;
+            TagBoysLove = false;
+            TagComedy = false;
+            TagCooking = false;
+            TagCrime = false;
+            TagCrossdressing = false;
+            TagDelinquents = false;
+            TagDemons = false;
+            TagDoujinshi = false;
+            TagDrama = false;
+            TagFanColored = false;
+            TagFantasy = false;
+            Tag4Koma = false;
+            TagFullColor = false;
+            TagGenderswap = false;
+            TagGhosts = false;
+            TagGirlsLove = false;
+            TagGore = false;
+            TagGyaru = false;
+            TagHarem = false;
+            TagHistorical = false;
+            TagHorror = false;
+            TagIncest = false;
+            TagIsekai = false;
+            TagLoli = false;
+            TagLongStrip = false;
+            TagMafia = false;
+            TagMagic = false;
+            TagMagicalGirls = false;
+            TagMartialArts = false;
+            TagMecha = false;
+            TagMedical = false;
+            TagMilitary = false;
+            TagMonsterGirls = false;
+            TagMonsters = false;
+            TagMusic = false;
+            TagMystery = false;
+            TagNinja = false;
+            TagOfficeWorkers = false;
+            TagOfficialColored = false;
+            TagOneshot = false;
+            TagPhilosophical = false;
+            TagPolice = false;
+            TagPostApocalyptic = false;
+            TagPsychological = false;
+            TagReincarnation = false;
+            TagReverseHarem = false;
+            TagRomance = false;
+            TagSamurai = false;
+            TagSchoolLife = false;
+            TagSciFi = false;
+            TagSexualViolence = false;
+            TagShota = false;
+            TagSliceofLife = false;
+            TagSports = false;
+            TagSuperhero = false;
+            TagSupernatural = false;
+            TagSurvival = false;
+            TagThriller = false;
+            TagTimeTravel = false;
+            TagTragedy = false;
+            TagTraditionalGames = false;
+            TagUserCreated = false;
+            TagVampires = false;
+            TagVideoGames = false;
+            TagVillainess = false;
+            TagVirtualReality = false;
+            TagWebComic = false;
+            TagWuxia = false;
+            TagZombies = false;
         }
     }
 }

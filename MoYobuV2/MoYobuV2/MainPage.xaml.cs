@@ -15,6 +15,8 @@ namespace MoYobuV2
     {
         private HttpClient _httpClient = null;
 
+        // Todo User preferences, settings
+        
         public MainPage()
         {
             InitializeComponent();

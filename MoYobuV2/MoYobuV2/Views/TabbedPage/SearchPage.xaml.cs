@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MangaDex.Client.Dtos;
+using MangaDex.Client.Filter;
 using MoYobuV2.ViewModels;
 using Syncfusion.ListView.XForms;
 using Syncfusion.XForms.TabView;
@@ -22,14 +23,6 @@ namespace MoYobuV2.Views.TabbedPage
             InitializeComponent();
             _viewModel = new SearchPageViewModel();
             BindingContext = _viewModel;
-            // MangaListView.IsBusy = true;
-            // _viewModel.TestData();
-            // _viewModel.TestData();
-            // _viewModel.TestData();
-            
-            // _viewModel.LoadFirst();
-            
-            // MangaListView.IsBusy = false;
         }
 
         private void BtnSearch_OnClicked(object sender, EventArgs e)
@@ -69,31 +62,44 @@ namespace MoYobuV2.Views.TabbedPage
             if (manga == null) return;
             // await Navigation.PushAsync(new MangaDetailView(manga));
             // new NavigationPage(new MangaDetailView(manga));
-            await Navigation.PushAsync(new MangaDetailView(manga));
+            await Navigation.PushAsync(new MangaDetailView(manga, _viewModel));
             // await App.Current.MainPage.Navigation.PushAsync(new MangaDetailView(manga));
             // _fromDetail = true;
             MangaListView.SelectedItem = null;
         }
 
-        private async void SfButton_OnClicked(object sender, EventArgs e)
+        private void SfButton_OnClicked(object sender, EventArgs e)
         {
             navigationDrawer.ToggleDrawer();
 
-            await Search();
+            Search();
         }
 
-        private async void SearchManga_OnSearchButtonPressed(object sender, EventArgs e)
+        private void SearchManga_OnSearchButtonPressed(object sender, EventArgs e)
         {
-            await Search();
+            Search();
         }
 
-        private async Task Search()
+        // Todo: Pokud už nic nenajde, musí infinit load vypnout
+        // Todo: Hledání podle názvu, pokud se vyhledává (zrušit staré, začít nové)
+        private void Search()
         {
-            _viewModel.MangaList.Clear();
-            _viewModel.Filter.Offset = 0;
-            _viewModel.Offset = 0;
+            _viewModel.ClearList();
+
+            // await _viewModel.LoadFirst();
+        }
+
+        private void BtnFilterReset_OnClicked(object sender, EventArgs e)
+        {
+            _viewModel.ResetFilter();
+            CbIncludeTagMode.SelectedIndex = 0;
+            CbExcludeTagMode.SelectedIndex = 0;
+            // _viewModel.Filter = new MdMangaFilter();
+            App.Filter = new MdMangaFilter();
             
-            await _viewModel.LoadFirst();
+            _viewModel.ClearList();
+            
+            navigationDrawer.ToggleDrawer();
         }
     }
 }

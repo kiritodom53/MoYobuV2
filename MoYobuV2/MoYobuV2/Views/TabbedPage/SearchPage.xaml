@@ -134,7 +134,10 @@
                             HorizontalOptions="Center"
                             WidthRequest="80" />
                         <Grid>
-                            <buttons:SfButton x:Name="SfButton" Text="Filter" Clicked="SfButton_OnClicked" />
+                            <StackLayout>
+                                <buttons:SfButton x:Name="SfButton" Text="Filter" Clicked="SfButton_OnClicked" />
+                                <buttons:SfButton x:Name="BtnFilterReset" Text="Reset" Clicked="BtnFilterReset_OnClicked" />
+                            </StackLayout>
                         </Grid>
                     </StackLayout>
                 </Grid>

@@ -58,7 +58,10 @@
 
                         <!-- Row 1 -->
                         <Grid Grid.Row="1">
-                            <buttons:SfChipGroup x:Name="Tags" Type="Action">
+                            <buttons:SfChipGroup x:Name="Tags" Type="Action"
+                                                 ChipPadding="3"
+                                                 ChipClicked="Tags_OnChipClicked"
+                                                 ItemsSource="{Binding Chips}">
                                 <buttons:SfChipGroup.ChipLayout>
                                     <FlexLayout
                                         HorizontalOptions="Start"
@@ -69,6 +72,14 @@
                                         AlignContent="Start"
                                         AlignItems="Start" />
                                 </buttons:SfChipGroup.ChipLayout>
+                                <!-- <buttons:SfChipGroup.ItemTemplate> -->
+                                <!--     <DataTemplate> -->
+                                <!--         <buttons:SfChip -->
+                                <!--             Margin="3" -->
+                                <!--             ShowSelectionIndicator="False" -->
+                                <!--             Text="{Binding .}" /> -->
+                                <!--     </DataTemplate> -->
+                                <!-- </buttons:SfChipGroup.ItemTemplate> -->
                                 <!-- <buttons:SfChipGroup.Items> -->
                                 <!-- <buttons:SfChip Margin="3" Text="Extra Small" /> -->
                                 <!-- <buttons:SfChip Margin="3" Text="Small" /> -->
@@ -134,6 +145,7 @@
                        HeightRequest="48" />
                 <xForms:SfListView x:Name="MangaChaptersListView"
                                    ItemSize="75"
+                                   SelectionChanged="MangaChaptersListView_OnSelectionChanged"
                                    ItemsSource="{Binding Chapters}"
                                    SelectionBackgroundColor="Transparent">
                     <xForms:SfListView.LayoutManager>
@@ -150,13 +162,13 @@
                                            VerticalOptions="Center"
                                            HorizontalOptions="FillAndExpand"
                                            Margin="5" />
-                                <Label Text="{Binding Attributes.Title}"
-                                       VerticalTextAlignment="Center"
-                                       TextColor="White"
-                                       FontSize="16"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="FillAndExpand"
-                                       Margin="5" />
+                                    <Label Text="{Binding Attributes.Title}"
+                                           VerticalTextAlignment="Center"
+                                           TextColor="White"
+                                           FontSize="16"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="FillAndExpand"
+                                           Margin="5" />
                                 </StackLayout>
                             </Grid>
                         </DataTemplate>

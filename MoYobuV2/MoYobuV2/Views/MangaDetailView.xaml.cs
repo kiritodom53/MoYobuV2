@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MangaDex.Client.Dtos;
 using MoYobuV2.ViewModels;
+using Syncfusion.ListView.XForms;
 using Syncfusion.XForms.Backdrop;
 using Syncfusion.XForms.Buttons;
 using Xamarin.Forms;
@@ -19,11 +20,12 @@ namespace MoYobuV2.Views
         private readonly MangaDetailViewModel _viewModel;
         
         private MangaDto _manga;
-        
+        private SearchPageViewModel _searchPageViewModel;
 
-        public MangaDetailView(MangaDto manga)
+        public MangaDetailView(MangaDto manga, SearchPageViewModel searchPageViewModel)
         {
             _manga = manga;
+            _searchPageViewModel = searchPageViewModel;
             InitializeComponent();
             _viewModel = new MangaDetailViewModel(_manga);
             BindingContext = _viewModel;
@@ -59,10 +61,38 @@ namespace MoYobuV2.Views
             MangaDescription.Text = _manga.Attributes.Description.En;
 
             // Todo: kliknutí zobrazí mangy s daným tagem
-            foreach (var tag in _manga.Attributes.Tags)
-            {
-                Tags.Items.Add(new SfChip() { Text = tag.Attributes.Name.En, Margin = new Thickness(3)});
-            }
+            // foreach (var tag in _manga.Attributes.Tags)
+            // {
+            //     Tags.Items.Add(new SfChip() { Text = tag.Attributes.Name.En, Margin = new Thickness(3)});
+            // }
+        }
+
+        private async void MangaChaptersListView_OnSelectionChanged(object sender, ItemSelectionChangedEventArgs e)
+        {
+            // Read
+
+            var chapter = MangaChaptersListView.SelectedItem as ChapterDto;
+            
+            await Navigation.PushAsync(new ChapterViewer(chapter));
+            
+            MangaChaptersListView.SelectedItem = null;
+        }
+
+        private async void Tags_OnChipClicked(object sender, EventArgs e)
+        {
+            // Todo: předělat
+            var chip = sender as SfChip;
+            // App.Current.Mainpage.Navigation.PopAsync()
+            _searchPageViewModel.ResetFilter();
+            // _searchPageViewModel.Filter.SetTagByName(chip?.Text);
+            // _searchPageViewModel.TagComedy = true;
+            
+            // var property = typeof(SearchPageViewModel).GetProperty($"Tag{chip?.Text.Replace(" ", "")}");
+            // property.SetValue(typeof(bool?), true, null);
+
+            _searchPageViewModel.ClearList();
+            
+            await App.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

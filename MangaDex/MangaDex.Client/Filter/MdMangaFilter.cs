@@ -156,9 +156,9 @@ namespace MangaDex.Client.Filter
             Title = string.IsNullOrEmpty(title) ? string.Empty : title;
             return this;
         }
-    
 
-    #region Original Language
+
+        #region Original Language
 
         public MdMangaFilter SetOriginalLanguageJapanese(bool value = true)
         {
@@ -771,8 +771,10 @@ namespace MangaDex.Client.Filter
 
         private void BuildTitle()
         {
-            if (!string.IsNullOrEmpty(Title))
-                _parametersParams.Add("title", Title);
+            // if (!string.IsNullOrEmpty(Title))
+            // _parametersParams.Add("title", Title);
+            // _parametersParams.Add("title", "Grand Blue");
+            // Todo: Remove
         }
 
         private void BuildOriginalLanguage()
@@ -1238,7 +1240,7 @@ namespace MangaDex.Client.Filter
         public QueryParameters Build()
         {
             _parametersParams = new QueryParameters();
-            
+
             _parametersParams.Add("offset", Offset.ToString());
             _parametersParams.Add("limit", Limit.ToString());
 
@@ -1251,6 +1253,14 @@ namespace MangaDex.Client.Filter
             BuildTags();
 
             return _parametersParams;
+        }
+
+        public void SetTagByName(string chipText)
+        {
+            if (chipText.Equals("Comedy"))
+            {
+                TagComedy = true;
+            }
         }
     }
 
