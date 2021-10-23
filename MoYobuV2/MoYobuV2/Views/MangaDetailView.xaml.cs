@@ -46,7 +46,7 @@ namespace MoYobuV2.Views
 
             // MangaChaptersListView.ItemsSource = Chapters;
             
-            // Todo: view model
+            // Todo: put to view model
             
             this.OpenIcon = "outline_expand_more_white_36.png";
             this.CloseIcon = "outline_expand_less_white_36.png";
@@ -80,7 +80,7 @@ namespace MoYobuV2.Views
 
         private async void Tags_OnChipClicked(object sender, EventArgs e)
         {
-            // Todo: předělat
+            // Todo: Přejít na pŕedchozí stránku s upraveným filtre
             var chip = sender as SfChip;
             // App.Current.Mainpage.Navigation.PopAsync()
             _searchPageViewModel.ResetFilter();

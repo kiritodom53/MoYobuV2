@@ -20,6 +20,8 @@ namespace MoYobuV2
         public MainPage()
         {
             InitializeComponent();
+            
+            // Automatically decode gzip
             // if (_http == null)
             // {
             //     HttpClientHandler handler = new HttpClientHandler()
@@ -36,14 +38,7 @@ namespace MoYobuV2
                 (httpRequestMessage, cert, cetChain, policyErrors) => true;
 
             _httpClient = new HttpClient(handler);
-            
-            
-            // ImageService.Instance.Initialize(new Configuration
-            // {
-            //     HttpClient = client
-            // }); 
-            
-            
+
             var config = new FFImageLoading.Config.Configuration()
             {
                 VerboseLogging = true,

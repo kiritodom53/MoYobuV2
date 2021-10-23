@@ -16,7 +16,7 @@ namespace MoYobuV2.Views.TabbedPage
     {
         private readonly SearchPageViewModel _viewModel;
         
-        // Todo: Pokud, už nenajde další mangu zakázat infinit load
+        // Todo: If offset > limit disable infinite load
         
         public SearchPage()
         {
@@ -80,12 +80,10 @@ namespace MoYobuV2.Views.TabbedPage
             Search();
         }
 
-        // Todo: Pokud už nic nenajde, musí infinit load vypnout
-        // Todo: Hledání podle názvu, pokud se vyhledává (zrušit staré, začít nové)
+        // Todo: if user start search manga by title and previouse searching is stil runnnig then stop and start new searching
         private void Search()
         {
             _viewModel.ClearList();
-
             // await _viewModel.LoadFirst();
         }
 
@@ -94,8 +92,8 @@ namespace MoYobuV2.Views.TabbedPage
             _viewModel.ResetFilter();
             CbIncludeTagMode.SelectedIndex = 0;
             CbExcludeTagMode.SelectedIndex = 0;
-            // _viewModel.Filter = new MdMangaFilter();
-            App.Filter = new MdMangaFilter();
+            _viewModel.Filter = new MdMangaFilter();
+            // App.Filter = new MdMangaFilter();
             
             _viewModel.ClearList();
             

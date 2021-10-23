@@ -14,8 +14,6 @@ namespace MangaDex.Client.Helpers
         public QueryParameters(IEnumerable<KeyValuePair<string, string>> collection) : base(collection)
         {
         }
-        
-        
 
         /// <summary>
         /// Add new KeyValuePair to List

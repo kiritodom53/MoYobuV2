@@ -17,44 +17,5 @@
                 <Button Text="Try Image Reader" Clicked="Button_OnClicked" />
             </StackLayout>
         </Grid>
-        <!-- <StackLayout> -->
-        <!--     <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> -->
-        <!--     ~1~ <AbsoluteLayout BackgroundColor="LightPink" Height="150" /> @1@ -->
-        <!--     ~1~ <ScrollView> @1@ -->
-        <!--     ~1~     <StackLayout> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~         <Label Text="Hello, test page!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" /> @1@ -->
-        <!--     ~1~     </StackLayout> @1@ -->
-        <!--     ~1~ </ScrollView> @1@ -->
-        <!-- </StackLayout> -->
     </tabView:SfTabItem.Content>
 </tabView:SfTabItem>

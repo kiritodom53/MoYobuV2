@@ -86,8 +86,10 @@ namespace MoYobuV2.Views
         //     // if (this.Width > 0 && ratio != 0) // width of the parent container
         //         // chapterPageImage.HeightRequest = this.Width / ratio;
         // }
+        
         private void ChapterPageImage_OnSuccess(object sender, CachedImageEvents.SuccessEventArgs e)
         {
+            // Metoda nefunguje, nevolá se
             var image = sender as CachedImage;
             // double width = e.ImageInformation.OriginalWidth;
             // double height = e.ImageInformation.OriginalHeight;

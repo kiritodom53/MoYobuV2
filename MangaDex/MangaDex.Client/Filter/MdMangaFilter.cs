@@ -1239,10 +1239,11 @@ namespace MangaDex.Client.Filter
 
         public QueryParameters Build()
         {
-            _parametersParams = new QueryParameters();
-
-            _parametersParams.Add("offset", Offset.ToString());
-            _parametersParams.Add("limit", Limit.ToString());
+            _parametersParams = new QueryParameters
+            {
+                { "offset", Offset.ToString() },
+                { "limit", Limit.ToString() }
+            };
 
             BuildTitle();
             BuildOriginalLanguage();

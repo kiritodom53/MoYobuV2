@@ -13,7 +13,7 @@ namespace MoYobuV2
 
         public App()
         {
-            //Register Syncfusion license
+            //Register Syncfusion comunity license
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTA5ODQ1QDMxMzkyZTMzMmUzMGtOS2wyTE5NVzFGUExJRGluZVRlbzdEV3plbUZJOXVaRHVhWk1ZaGFpcms9");
             
             InitializeComponent();

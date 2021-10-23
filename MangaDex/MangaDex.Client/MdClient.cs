@@ -149,10 +149,11 @@ namespace MangaDex.Client
 
         private string BuildUrl(string url, QueryParameters parameters)
         {
-            var builder = new UriBuilder(url);
-
-            // if (parameters != null || size.Length != 0)
-            builder.Query = Helper.EncodeDictionary(parameters);
+            var builder = new UriBuilder(url)
+            {
+                // if (parameters != null || size.Length != 0)
+                Query = Helper.EncodeDictionary(parameters)
+            };
 
             Console.WriteLine(builder.ToString());
             var t = builder.ToString();

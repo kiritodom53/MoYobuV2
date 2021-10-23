@@ -34,7 +34,7 @@ namespace MoYobuV2.ViewModels
 
         #region Filter
 
-        private string _title = "Grand Blue"; // Todo: Remove
+        private string _title = "Grand Blue"; // Todo: Remove, only for debug
 
         // Original language
         private bool _originalLanguageJapanese;
@@ -975,7 +975,9 @@ namespace MoYobuV2.ViewModels
         public ICommand LoadMoreCommand { get; }
 
         private bool _hasNextPage = true;
-        private bool canLoad = true;
+
+        private bool firstShow = true;
+        private bool canLoad;
         // private SearchPage _searchPage;
 
         public SearchPageViewModel()
@@ -999,7 +1001,7 @@ namespace MoYobuV2.ViewModels
             Offset += Filter.Limit;
             var data = await MdClient.SearchManga(Filter.Build());
 
-
+            // id offset is bigger than total then stop loading
             if (data.Offset > data.Total)
             {
                 IsBusy = false;
@@ -1007,8 +1009,7 @@ namespace MoYobuV2.ViewModels
                 canLoad = false;
                 return;
             }
-
-
+            
             if (!data.Data.Any())
             {
                 IsBusy = false;
@@ -1016,13 +1017,7 @@ namespace MoYobuV2.ViewModels
                 return;
             }
 
-
             Debug.WriteLine($"Filter offset: {Filter.Offset} - _offest: {Offset}");
-
-            // _hasNextPage = data.Data.Any();
-
-            // if (!_hasNextPage)
-            // return;
 
             foreach (var item in data.Data)
             {
@@ -1035,19 +1030,15 @@ namespace MoYobuV2.ViewModels
                 item.Attributes.Cover256 =
                     $"{MdConstants.ApiCover256Url}/{item.Id}/{coverData.Data.Attributes.FileName}.256.jpg";
                 item.Attributes.Cover256Uri = new Uri(item.Attributes.Cover256);
-
-                // string tempUri = item.Attributes.Cover256;
-
-                // get cover filenam by cover id
             }
 
             MangaList.AddRange(data.Data);
-
-            // _hasNextPage = data.HasNextPage;
+            
             IsBusy = false;
             listView.IsBusy = false;
         }
 
+        // Deprecated
         public async Task LoadFirst()
         {
             if (IsBusy)
@@ -1081,28 +1072,7 @@ namespace MoYobuV2.ViewModels
             // listView.IsBusy = true;
         }
 
-        // public async Task LoadData(int offset = 0)
-        // {
-        //     Filter.Offset = offset;
-        //     var data = await MdClient.SearchManga(Filter.Build());
-        //
-        //     foreach (var item in data.Data)
-        //     {
-        //         // https://uploads.mangadex.org/covers/{ manga.id }/{ cover.filename }.256.jpg
-        //         var coverId = item.Relationships.First(x => x.Type == MdConstants.CoverArt).Id;
-        //         // item.Attributes.Cover256 = $"{MdConstants.ApiCover256Url}/{item.Id}/{coverId}.256.jpg";
-        //         var coverData = await MdClient.GetCover(coverId);
-        //         item.Attributes.Cover256 = $"{MdConstants.ApiCover256Url}/{item.Id}/{coverData.Data.Attributes.FileName}.256.jpg";
-        //
-        //         // get cover filenam by cover id
-        //     }
-        //     
-        //     MangaList.AddRange(data.Data);
-        //
-        //     // var t = "";
-        // }
-
-        public void TestData()
+        private void TestData()
         {
             for (int i = 1; i <= 14; i++)
             {

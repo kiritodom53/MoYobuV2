@@ -8,13 +8,13 @@ namespace MoYobuV2.Helpers
 {
     public class ImageSourceConverter : IValueConverter
     {
-        static WebClient Client = new WebClient();
+        static readonly WebClient client = new WebClient();
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
                 return null;
 
-            var byteArray = Client.DownloadData(value.ToString());
+            var byteArray = client.DownloadData(value.ToString());
             return ImageSource.FromStream(() => new MemoryStream(byteArray));
         }
 

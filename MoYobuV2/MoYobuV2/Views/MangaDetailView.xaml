@@ -20,7 +20,6 @@
         <backdrop:BackdropBackLayer>
             <Grid BackgroundColor="{StaticResource BgColor}" VerticalOptions="FillAndExpand">
                 <StackLayout Margin="10,10,10,0">
-
                     <!-- <ScrollView> -->
                     <Grid>
                         <Grid.RowDefinitions>
@@ -28,7 +27,6 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-
                         <!-- Row 0 -->
                         <Grid Grid.Row="0">
                             <Grid.ColumnDefinitions>
@@ -40,12 +38,13 @@
                                    Padding="0"
                                    BorderColor="Transparent"
                                    IsClippedToBounds="True">
-                                <ffimageloading:CachedImage x:Name="MangaImg"
-                                                            Aspect="AspectFill"
-                                                            DownsampleToViewSize="True"
-                                                            WidthRequest="90"
-                                                            HeightRequest="210"
-                                                            HorizontalOptions="FillAndExpand" />
+                                <ffimageloading:CachedImage
+                                    x:Name="MangaImg"
+                                    Aspect="AspectFill"
+                                    DownsampleToViewSize="True"
+                                    WidthRequest="90"
+                                    HeightRequest="210"
+                                    HorizontalOptions="FillAndExpand" />
                             </Frame>
 
 
@@ -72,31 +71,6 @@
                                         AlignContent="Start"
                                         AlignItems="Start" />
                                 </buttons:SfChipGroup.ChipLayout>
-                                <!-- <buttons:SfChipGroup.ItemTemplate> -->
-                                <!--     <DataTemplate> -->
-                                <!--         <buttons:SfChip -->
-                                <!--             Margin="3" -->
-                                <!--             ShowSelectionIndicator="False" -->
-                                <!--             Text="{Binding .}" /> -->
-                                <!--     </DataTemplate> -->
-                                <!-- </buttons:SfChipGroup.ItemTemplate> -->
-                                <!-- <buttons:SfChipGroup.Items> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Extra Small" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Small" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Large" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Extra Large" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Medium" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Large" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Small" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Extra Large" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Medium" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Medium" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Extra Small" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Small" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Extra Large" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Extra Small" /> -->
-                                <!-- <buttons:SfChip Margin="3" Text="Large" /> -->
-                                <!-- </buttons:SfChipGroup.Items> -->
                             </buttons:SfChipGroup>
                         </Grid>
 

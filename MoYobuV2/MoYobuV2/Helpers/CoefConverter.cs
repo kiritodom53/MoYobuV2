@@ -7,7 +7,6 @@ namespace MoYobuV2.Helpers
     public class CoefConverter : IValueConverter
     {
         // WidthRequest="{Binding Source={x:Reference Grd}, Path=Width, Converter={StaticResource cc}, ConverterParameter=0.25}"
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             double coef = 1.0;
