@@ -4,21 +4,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MoYobuV2"
              xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
-             xmlns:tabbedPage="clr-namespace:MoYobuV2.TabbedPage;assembly=MoYobuV2"
+             xmlns:tabbedPage="clr-namespace:MoYobuV2.Views.TabbedPage;assembly=MoYobuV2"
+             NavigationPage.HasNavigationBar="false"
              x:Class="MoYobuV2.MainPage">
 
     <tabView:SfTabView VisibleHeaderCount="3"
-                       TabHeaderBackgroundColor="#2196F3"
+                       TabHeaderBackgroundColor="{StaticResource BgColor2}"
                        TabHeaderPosition="Bottom"
                        DisplayMode="ImageWithText">
         <tabView:SfTabView.SelectionIndicatorSettings>
             <tabView:SelectionIndicatorSettings
                 Position="Bottom"
+                Color="#FF006B"
                 StrokeThickness="2" />
         </tabView:SfTabView.SelectionIndicatorSettings>
-        <tabbedPage:LibraryPage ImageSource="ic_action_book.png" />
-        <tabbedPage:SearchPage ImageSource="ic_action_search.png" />
-        <tabbedPage:OtherPage ImageSource="ic_action_settings.png" />
+        <tabbedPage:LibraryPage SelectionColor="#FF006B" TitleFontColor="White" ImageSource="outline_book_white_36.png" />
+        <tabbedPage:SearchPage SelectionColor="#FF006B" TitleFontColor="White" ImageSource="outline_search_white_36.png" />
+        <tabbedPage:OtherPage SelectionColor="#FF006B" TitleFontColor="White" ImageSource="outline_settings_white_36.png" />
     </tabView:SfTabView>
 
 </ContentPage>

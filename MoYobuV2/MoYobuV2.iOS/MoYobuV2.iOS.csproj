@@ -110,12 +110,24 @@
         <PackageReference Include="Syncfusion.Licensing" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.Expander" Version="19.3.0.43" />
+        <PackageReference Include="Syncfusion.Xamarin.SfBackdrop" Version="19.3.0.43" />
+        <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="19.3.0.43" />
         <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.3.0.43" />
+        <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+        <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
     </ItemGroup>
     <ItemGroup>
+        <ProjectReference Include="..\..\MangaDex.Client\MangaDex.Client.csproj">
+          <Project>{6c502f57-b1b7-491f-aae7-e4205ee634bf}</Project>
+          <Name>MangaDex.Client</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\MangaDex\MangaDex.Client\MangaDex.Client.csproj">
+          <Project>{ea240118-f5bd-409f-a344-6483d01b2aa8}</Project>
+          <Name>MangaDex.Client</Name>
+        </ProjectReference>
         <ProjectReference Include="..\MoYobuV2\MoYobuV2.csproj">
             <Project>{801B568F-6937-49A2-81B7-A6A5417D64E5}</Project>
             <Name>MoYobuV2</Name>

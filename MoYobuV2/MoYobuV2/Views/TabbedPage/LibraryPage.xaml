@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<tabView:SfTabItem xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+                   x:Class="MoYobuV2.Views.TabbedPage.LibraryPage"
+                   Title="Library">
+
+    <tabView:SfTabItem.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Padding="0" Margin="0" BackgroundColor="#661A38" />
+            <StackLayout Grid.Row="1" Padding="0" Margin="0" BackgroundColor="#305F73">
+                <Button Text="Try Image Reader" Clicked="Button_OnClicked" />
+            </StackLayout>
+        </Grid>
+    </tabView:SfTabItem.Content>
+</tabView:SfTabItem>

@@ -1,0 +1,1625 @@
+private bool? _tagAction = false;
+private bool? _tagAdaptation = false;
+private bool? _tagAdventure = false;
+private bool? _tagAliens = false;
+private bool? _tagAnimals = false;
+private bool? _tagAnthology = false;
+private bool? _tagAwardWinning = false;
+private bool? _tagBoysLove = false;
+private bool? _tagComedy = false;
+private bool? _tagCooking = false;
+private bool? _tagCrime = false;
+private bool? _tagCrossdressing = false;
+private bool? _tagDelinquents = false;
+private bool? _tagDemons = false;
+private bool? _tagDoujinshi = false;
+private bool? _tagDrama = false;
+private bool? _tagFanColored = false;
+private bool? _tagFantasy = false;
+private bool? _tag4Koma = false;
+private bool? _tagFullColor = false;
+private bool? _tagGenderswap = false;
+private bool? _tagGhosts = false;
+private bool? _tagGirlsLove = false;
+private bool? _tagGore = false;
+private bool? _tagGyaru = false;
+private bool? _tagHarem = false;
+private bool? _tagHistorical = false;
+private bool? _tagHorror = false;
+private bool? _tagIncest = false;
+private bool? _tagIsekai = false;
+private bool? _tagLoli = false;
+private bool? _tagLongStrip = false;
+private bool? _tagMafia = false;
+private bool? _tagMagic = false;
+private bool? _tagMagicalGirls = false;
+private bool? _tagMartialArts = false;
+private bool? _tagMecha = false;
+private bool? _tagMedical = false;
+private bool? _tagMilitary = false;
+private bool? _tagMonsterGirls = false;
+private bool? _tagMonsters = false;
+private bool? _tagMusic = false;
+private bool? _tagMystery = false;
+private bool? _tagNinja = false;
+private bool? _tagOfficeWorkers = false;
+private bool? _tagOfficialColored = false;
+private bool? _tagOneshot = false;
+private bool? _tagPhilosophical = false;
+private bool? _tagPolice = false;
+private bool? _tagPostApocalyptic = false;
+private bool? _tagPsychological = false;
+private bool? _tagReincarnation = false;
+private bool? _tagReverseHarem = false;
+private bool? _tagRomance = false;
+private bool? _tagSamurai = false;
+private bool? _tagSchoolLife = false;
+private bool? _tagSciFi = false;
+private bool? _tagSexualViolence = false;
+private bool? _tagShota = false;
+private bool? _tagSliceofLife = false;
+private bool? _tagSports = false;
+private bool? _tagSuperhero = false;
+private bool? _tagSupernatural = false;
+private bool? _tagSurvival = false;
+private bool? _tagThriller = false;
+private bool? _tagTimeTravel = false;
+private bool? _tagTragedy = false;
+private bool? _tagTraditionalGames = false;
+private bool? _tagUserCreated = false;
+private bool? _tagVampires = false;
+private bool? _tagVideoGames = false;
+private bool? _tagVillainess = false;
+private bool? _tagVirtualReality = false;
+private bool? _tagWebComic = false;
+private bool? _tagWuxia = false;
+private bool? _tagZombies = false;
+
+
+
+
+
+public bool? TagAction
+{
+get { return _tagAction; }
+set => SetProperty(ref _tagAction, value,
+nameof(TagAction),
+() => { Filter.TagAction = value; });
+}
+
+public bool? TagAdaptation
+{
+get { return _tagAdaptation; }
+set => SetProperty(ref _tagAdaptation, value,
+nameof(TagAdaptation),
+() => { Filter.TagAdaptation = value; });
+}
+
+public bool? TagAdventure
+{
+get { return _tagAdventure; }
+set => SetProperty(ref _tagAdventure, value,
+nameof(TagAdventure),
+() => { Filter.TagAdventure = value; });
+}
+
+public bool? TagAliens
+{
+get { return _tagAliens; }
+set => SetProperty(ref _tagAliens, value,
+nameof(TagAliens),
+() => { Filter.TagAliens = value; });
+}
+
+public bool? TagAnimals
+{
+get { return _tagAnimals; }
+set => SetProperty(ref _tagAnimals, value,
+nameof(TagAnimals),
+() => { Filter.TagAnimals = value; });
+}
+
+public bool? TagAnthology
+{
+get { return _tagAnthology; }
+set => SetProperty(ref _tagAnthology, value,
+nameof(TagAnthology),
+() => { Filter.TagAnthology = value; });
+}
+
+public bool? TagAwardWinning
+{
+get { return _tagAwardWinning; }
+set => SetProperty(ref _tagAwardWinning, value,
+nameof(TagAwardWinning),
+() => { Filter.TagAwardWinning = value; });
+}
+
+public bool? TagBoysLove
+{
+get { return _tagBoysLove; }
+set => SetProperty(ref _tagBoysLove, value,
+nameof(TagBoysLove),
+() => { Filter.TagBoysLove = value; });
+}
+
+public bool? TagComedy
+{
+get { return _tagComedy; }
+set => SetProperty(ref _tagComedy, value,
+nameof(TagComedy),
+() => { Filter.TagComedy = value; });
+}
+
+public bool? TagCooking
+{
+get { return _tagCooking; }
+set => SetProperty(ref _tagCooking, value,
+nameof(TagCooking),
+() => { Filter.TagCooking = value; });
+}
+
+public bool? TagCrime
+{
+get { return _tagCrime; }
+set => SetProperty(ref _tagCrime, value,
+nameof(TagCrime),
+() => { Filter.TagCrime = value; });
+}
+
+public bool? TagCrossdressing
+{
+get { return _tagCrossdressing; }
+set => SetProperty(ref _tagCrossdressing, value,
+nameof(TagCrossdressing),
+() => { Filter.TagCrossdressing = value; });
+}
+
+public bool? TagDelinquents
+{
+get { return _tagDelinquents; }
+set => SetProperty(ref _tagDelinquents, value,
+nameof(TagDelinquents),
+() => { Filter.TagDelinquents = value; });
+}
+
+public bool? TagDemons
+{
+get { return _tagDemons; }
+set => SetProperty(ref _tagDemons, value,
+nameof(TagDemons),
+() => { Filter.TagDemons = value; });
+}
+
+public bool? TagDoujinshi
+{
+get { return _tagDoujinshi; }
+set => SetProperty(ref _tagDoujinshi, value,
+nameof(TagDoujinshi),
+() => { Filter.TagDoujinshi = value; });
+}
+
+public bool? TagDrama
+{
+get { return _tagDrama; }
+set => SetProperty(ref _tagDrama, value,
+nameof(TagDrama),
+() => { Filter.TagDrama = value; });
+}
+
+public bool? TagFanColored
+{
+get { return _tagFanColored; }
+set => SetProperty(ref _tagFanColored, value,
+nameof(TagFanColored),
+() => { Filter.TagFanColored = value; });
+}
+
+public bool? TagFantasy
+{
+get { return _tagFantasy; }
+set => SetProperty(ref _tagFantasy, value,
+nameof(TagFantasy),
+() => { Filter.TagFantasy = value; });
+}
+
+public bool? Tag4Koma
+{
+get { return _tag4Koma; }
+set => SetProperty(ref _tag4Koma, value,
+nameof(Tag4Koma),
+() => { Filter.Tag4Koma = value; });
+}
+
+public bool? TagFullColor
+{
+get { return _tagFullColor; }
+set => SetProperty(ref _tagFullColor, value,
+nameof(TagFullColor),
+() => { Filter.TagFullColor = value; });
+}
+
+public bool? TagGenderswap
+{
+get { return _tagGenderswap; }
+set => SetProperty(ref _tagGenderswap, value,
+nameof(TagGenderswap),
+() => { Filter.TagGenderswap = value; });
+}
+
+public bool? TagGhosts
+{
+get { return _tagGhosts; }
+set => SetProperty(ref _tagGhosts, value,
+nameof(TagGhosts),
+() => { Filter.TagGhosts = value; });
+}
+
+public bool? TagGirlsLove
+{
+get { return _tagGirlsLove; }
+set => SetProperty(ref _tagGirlsLove, value,
+nameof(TagGirlsLove),
+() => { Filter.TagGirlsLove = value; });
+}
+
+public bool? TagGore
+{
+get { return _tagGore; }
+set => SetProperty(ref _tagGore, value,
+nameof(TagGore),
+() => { Filter.TagGore = value; });
+}
+
+public bool? TagGyaru
+{
+get { return _tagGyaru; }
+set => SetProperty(ref _tagGyaru, value,
+nameof(TagGyaru),
+() => { Filter.TagGyaru = value; });
+}
+
+public bool? TagHarem
+{
+get { return _tagHarem; }
+set => SetProperty(ref _tagHarem, value,
+nameof(TagHarem),
+() => { Filter.TagHarem = value; });
+}
+
+public bool? TagHistorical
+{
+get { return _tagHistorical; }
+set => SetProperty(ref _tagHistorical, value,
+nameof(TagHistorical),
+() => { Filter.TagHistorical = value; });
+}
+
+public bool? TagHorror
+{
+get { return _tagHorror; }
+set => SetProperty(ref _tagHorror, value,
+nameof(TagHorror),
+() => { Filter.TagHorror = value; });
+}
+
+public bool? TagIncest
+{
+get { return _tagIncest; }
+set => SetProperty(ref _tagIncest, value,
+nameof(TagIncest),
+() => { Filter.TagIncest = value; });
+}
+
+public bool? TagIsekai
+{
+get { return _tagIsekai; }
+set => SetProperty(ref _tagIsekai, value,
+nameof(TagIsekai),
+() => { Filter.TagIsekai = value; });
+}
+
+public bool? TagLoli
+{
+get { return _tagLoli; }
+set => SetProperty(ref _tagLoli, value,
+nameof(TagLoli),
+() => { Filter.TagLoli = value; });
+}
+
+public bool? TagLongStrip
+{
+get { return _tagLongStrip; }
+set => SetProperty(ref _tagLongStrip, value,
+nameof(TagLongStrip),
+() => { Filter.TagLongStrip = value; });
+}
+
+public bool? TagMafia
+{
+get { return _tagMafia; }
+set => SetProperty(ref _tagMafia, value,
+nameof(TagMafia),
+() => { Filter.TagMafia = value; });
+}
+
+public bool? TagMagic
+{
+get { return _tagMagic; }
+set => SetProperty(ref _tagMagic, value,
+nameof(TagMagic),
+() => { Filter.TagMagic = value; });
+}
+
+public bool? TagMagicalGirls
+{
+get { return _tagMagicalGirls; }
+set => SetProperty(ref _tagMagicalGirls, value,
+nameof(TagMagicalGirls),
+() => { Filter.TagMagicalGirls = value; });
+}
+
+public bool? TagMartialArts
+{
+get { return _tagMartialArts; }
+set => SetProperty(ref _tagMartialArts, value,
+nameof(TagMartialArts),
+() => { Filter.TagMartialArts = value; });
+}
+
+public bool? TagMecha
+{
+get { return _tagMecha; }
+set => SetProperty(ref _tagMecha, value,
+nameof(TagMecha),
+() => { Filter.TagMecha = value; });
+}
+
+public bool? TagMedical
+{
+get { return _tagMedical; }
+set => SetProperty(ref _tagMedical, value,
+nameof(TagMedical),
+() => { Filter.TagMedical = value; });
+}
+
+public bool? TagMilitary
+{
+get { return _tagMilitary; }
+set => SetProperty(ref _tagMilitary, value,
+nameof(TagMilitary),
+() => { Filter.TagMilitary = value; });
+}
+
+public bool? TagMonsterGirls
+{
+get { return _tagMonsterGirls; }
+set => SetProperty(ref _tagMonsterGirls, value,
+nameof(TagMonsterGirls),
+() => { Filter.TagMonsterGirls = value; });
+}
+
+public bool? TagMonsters
+{
+get { return _tagMonsters; }
+set => SetProperty(ref _tagMonsters, value,
+nameof(TagMonsters),
+() => { Filter.TagMonsters = value; });
+}
+
+public bool? TagMusic
+{
+get { return _tagMusic; }
+set => SetProperty(ref _tagMusic, value,
+nameof(TagMusic),
+() => { Filter.TagMusic = value; });
+}
+
+public bool? TagMystery
+{
+get { return _tagMystery; }
+set => SetProperty(ref _tagMystery, value,
+nameof(TagMystery),
+() => { Filter.TagMystery = value; });
+}
+
+public bool? TagNinja
+{
+get { return _tagNinja; }
+set => SetProperty(ref _tagNinja, value,
+nameof(TagNinja),
+() => { Filter.TagNinja = value; });
+}
+
+public bool? TagOfficeWorkers
+{
+get { return _tagOfficeWorkers; }
+set => SetProperty(ref _tagOfficeWorkers, value,
+nameof(TagOfficeWorkers),
+() => { Filter.TagOfficeWorkers = value; });
+}
+
+public bool? TagOfficialColored
+{
+get { return _tagOfficialColored; }
+set => SetProperty(ref _tagOfficialColored, value,
+nameof(TagOfficialColored),
+() => { Filter.TagOfficialColored = value; });
+}
+
+public bool? TagOneshot
+{
+get { return _tagOneshot; }
+set => SetProperty(ref _tagOneshot, value,
+nameof(TagOneshot),
+() => { Filter.TagOneshot = value; });
+}
+
+public bool? TagPhilosophical
+{
+get { return _tagPhilosophical; }
+set => SetProperty(ref _tagPhilosophical, value,
+nameof(TagPhilosophical),
+() => { Filter.TagPhilosophical = value; });
+}
+
+public bool? TagPolice
+{
+get { return _tagPolice; }
+set => SetProperty(ref _tagPolice, value,
+nameof(TagPolice),
+() => { Filter.TagPolice = value; });
+}
+
+public bool? TagPostApocalyptic
+{
+get { return _tagPostApocalyptic; }
+set => SetProperty(ref _tagPostApocalyptic, value,
+nameof(TagPostApocalyptic),
+() => { Filter.TagPostApocalyptic = value; });
+}
+
+public bool? TagPsychological
+{
+get { return _tagPsychological; }
+set => SetProperty(ref _tagPsychological, value,
+nameof(TagPsychological),
+() => { Filter.TagPsychological = value; });
+}
+
+public bool? TagReincarnation
+{
+get { return _tagReincarnation; }
+set => SetProperty(ref _tagReincarnation, value,
+nameof(TagReincarnation),
+() => { Filter.TagReincarnation = value; });
+}
+
+public bool? TagReverseHarem
+{
+get { return _tagReverseHarem; }
+set => SetProperty(ref _tagReverseHarem, value,
+nameof(TagReverseHarem),
+() => { Filter.TagReverseHarem = value; });
+}
+
+public bool? TagRomance
+{
+get { return _tagRomance; }
+set => SetProperty(ref _tagRomance, value,
+nameof(TagRomance),
+() => { Filter.TagRomance = value; });
+}
+
+public bool? TagSamurai
+{
+get { return _tagSamurai; }
+set => SetProperty(ref _tagSamurai, value,
+nameof(TagSamurai),
+() => { Filter.TagSamurai = value; });
+}
+
+public bool? TagSchoolLife
+{
+get { return _tagSchoolLife; }
+set => SetProperty(ref _tagSchoolLife, value,
+nameof(TagSchoolLife),
+() => { Filter.TagSchoolLife = value; });
+}
+
+public bool? TagSciFi
+{
+get { return _tagSciFi; }
+set => SetProperty(ref _tagSciFi, value,
+nameof(TagSciFi),
+() => { Filter.TagSciFi = value; });
+}
+
+public bool? TagSexualViolence
+{
+get { return _tagSexualViolence; }
+set => SetProperty(ref _tagSexualViolence, value,
+nameof(TagSexualViolence),
+() => { Filter.TagSexualViolence = value; });
+}
+
+public bool? TagShota
+{
+get { return _tagShota; }
+set => SetProperty(ref _tagShota, value,
+nameof(TagShota),
+() => { Filter.TagShota = value; });
+}
+
+public bool? TagSliceofLife
+{
+get { return _tagSliceofLife; }
+set => SetProperty(ref _tagSliceofLife, value,
+nameof(TagSliceofLife),
+() => { Filter.TagSliceofLife = value; });
+}
+
+public bool? TagSports
+{
+get { return _tagSports; }
+set => SetProperty(ref _tagSports, value,
+nameof(TagSports),
+() => { Filter.TagSports = value; });
+}
+
+public bool? TagSuperhero
+{
+get { return _tagSuperhero; }
+set => SetProperty(ref _tagSuperhero, value,
+nameof(TagSuperhero),
+() => { Filter.TagSuperhero = value; });
+}
+
+public bool? TagSupernatural
+{
+get { return _tagSupernatural; }
+set => SetProperty(ref _tagSupernatural, value,
+nameof(TagSupernatural),
+() => { Filter.TagSupernatural = value; });
+}
+
+public bool? TagSurvival
+{
+get { return _tagSurvival; }
+set => SetProperty(ref _tagSurvival, value,
+nameof(TagSurvival),
+() => { Filter.TagSurvival = value; });
+}
+
+public bool? TagThriller
+{
+get { return _tagThriller; }
+set => SetProperty(ref _tagThriller, value,
+nameof(TagThriller),
+() => { Filter.TagThriller = value; });
+}
+
+public bool? TagTimeTravel
+{
+get { return _tagTimeTravel; }
+set => SetProperty(ref _tagTimeTravel, value,
+nameof(TagTimeTravel),
+() => { Filter.TagTimeTravel = value; });
+}
+
+public bool? TagTragedy
+{
+get { return _tagTragedy; }
+set => SetProperty(ref _tagTragedy, value,
+nameof(TagTragedy),
+() => { Filter.TagTragedy = value; });
+}
+
+public bool? TagTraditionalGames
+{
+get { return _tagTraditionalGames; }
+set => SetProperty(ref _tagTraditionalGames, value,
+nameof(TagTraditionalGames),
+() => { Filter.TagTraditionalGames = value; });
+}
+
+public bool? TagUserCreated
+{
+get { return _tagUserCreated; }
+set => SetProperty(ref _tagUserCreated, value,
+nameof(TagUserCreated),
+() => { Filter.TagUserCreated = value; });
+}
+
+public bool? TagVampires
+{
+get { return _tagVampires; }
+set => SetProperty(ref _tagVampires, value,
+nameof(TagVampires),
+() => { Filter.TagVampires = value; });
+}
+
+public bool? TagVideoGames
+{
+get { return _tagVideoGames; }
+set => SetProperty(ref _tagVideoGames, value,
+nameof(TagVideoGames),
+() => { Filter.TagVideoGames = value; });
+}
+
+public bool? TagVillainess
+{
+get { return _tagVillainess; }
+set => SetProperty(ref _tagVillainess, value,
+nameof(TagVillainess),
+() => { Filter.TagVillainess = value; });
+}
+
+public bool? TagVirtualReality
+{
+get { return _tagVirtualReality; }
+set => SetProperty(ref _tagVirtualReality, value,
+nameof(TagVirtualReality),
+() => { Filter.TagVirtualReality = value; });
+}
+
+public bool? TagWebComic
+{
+get { return _tagWebComic; }
+set => SetProperty(ref _tagWebComic, value,
+nameof(TagWebComic),
+() => { Filter.TagWebComic = value; });
+}
+
+public bool? TagWuxia
+{
+get { return _tagWuxia; }
+set => SetProperty(ref _tagWuxia, value,
+nameof(TagWuxia),
+() => { Filter.TagWuxia = value; });
+}
+
+public bool? TagZombies
+{
+get { return _tagZombies; }
+set => SetProperty(ref _tagZombies, value,
+nameof(TagZombies),
+() => { Filter.TagZombies = value; });
+}
+
+
+
+
+MdMangaFilter.cs
+
+
+
+
+
+Properties
+
+
+public bool? TagAction { get; set; } = false;
+public bool? TagAdaptation { get; set; } = false;
+public bool? TagAdventure { get; set; } = false;
+public bool? TagAliens { get; set; } = false;
+public bool? TagAnimals { get; set; } = false;
+public bool? TagAnthology { get; set; } = false;
+public bool? TagAwardWinning { get; set; } = false;
+public bool? TagBoysLove { get; set; } = false;
+public bool? TagComedy { get; set; } = false;
+public bool? TagCooking { get; set; } = false;
+public bool? TagCrime { get; set; } = false;
+public bool? TagCrossdressing { get; set; } = false;
+public bool? TagDelinquents { get; set; } = false;
+public bool? TagDemons { get; set; } = false;
+public bool? TagDoujinshi { get; set; } = false;
+public bool? TagDrama { get; set; } = false;
+public bool? TagFanColored { get; set; } = false;
+public bool? TagFantasy { get; set; } = false;
+public bool? Tag4Koma { get; set; } = false;
+public bool? TagFullColor { get; set; } = false;
+public bool? TagGenderswap { get; set; } = false;
+public bool? TagGhosts { get; set; } = false;
+public bool? TagGirlsLove { get; set; } = false;
+public bool? TagGore { get; set; } = false;
+public bool? TagGyaru { get; set; } = false;
+public bool? TagHarem { get; set; } = false;
+public bool? TagHistorical { get; set; } = false;
+public bool? TagHorror { get; set; } = false;
+public bool? TagIncest { get; set; } = false;
+public bool? TagIsekai { get; set; } = false;
+public bool? TagLoli { get; set; } = false;
+public bool? TagLongStrip { get; set; } = false;
+public bool? TagMafia { get; set; } = false;
+public bool? TagMagic { get; set; } = false;
+public bool? TagMagicalGirls { get; set; } = false;
+public bool? TagMartialArts { get; set; } = false;
+public bool? TagMecha { get; set; } = false;
+public bool? TagMedical { get; set; } = false;
+public bool? TagMilitary { get; set; } = false;
+public bool? TagMonsterGirls { get; set; } = false;
+public bool? TagMonsters { get; set; } = false;
+public bool? TagMusic { get; set; } = false;
+public bool? TagMystery { get; set; } = false;
+public bool? TagNinja { get; set; } = false;
+public bool? TagOfficeWorkers { get; set; } = false;
+public bool? TagOfficialColored { get; set; } = false;
+public bool? TagOneshot { get; set; } = false;
+public bool? TagPhilosophical { get; set; } = false;
+public bool? TagPolice { get; set; } = false;
+public bool? TagPostApocalyptic { get; set; } = false;
+public bool? TagPsychological { get; set; } = false;
+public bool? TagReincarnation { get; set; } = false;
+public bool? TagReverseHarem { get; set; } = false;
+public bool? TagRomance { get; set; } = false;
+public bool? TagSamurai { get; set; } = false;
+public bool? TagSchoolLife { get; set; } = false;
+public bool? TagSciFi { get; set; } = false;
+public bool? TagSexualViolence { get; set; } = false;
+public bool? TagShota { get; set; } = false;
+public bool? TagSliceofLife { get; set; } = false;
+public bool? TagSports { get; set; } = false;
+public bool? TagSuperhero { get; set; } = false;
+public bool? TagSupernatural { get; set; } = false;
+public bool? TagSurvival { get; set; } = false;
+public bool? TagThriller { get; set; } = false;
+public bool? TagTimeTravel { get; set; } = false;
+public bool? TagTragedy { get; set; } = false;
+public bool? TagTraditionalGames { get; set; } = false;
+public bool? TagUserCreated { get; set; } = false;
+public bool? TagVampires { get; set; } = false;
+public bool? TagVideoGames { get; set; } = false;
+public bool? TagVillainess { get; set; } = false;
+public bool? TagVirtualReality { get; set; } = false;
+public bool? TagWebComic { get; set; } = false;
+public bool? TagWuxia { get; set; } = false;
+public bool? TagZombies { get; set; } = false;
+
+
+
+Setters
+
+
+public MdMangaFilter SetTagAction(bool? value = true)
+{
+TagAction = value;
+return this;
+}
+
+public MdMangaFilter SetTagAdaptation(bool? value = true)
+{
+TagAdaptation = value;
+return this;
+}
+
+public MdMangaFilter SetTagAdventure(bool? value = true)
+{
+TagAdventure = value;
+return this;
+}
+
+public MdMangaFilter SetTagAliens(bool? value = true)
+{
+TagAliens = value;
+return this;
+}
+
+public MdMangaFilter SetTagAnimals(bool? value = true)
+{
+TagAnimals = value;
+return this;
+}
+
+public MdMangaFilter SetTagAnthology(bool? value = true)
+{
+TagAnthology = value;
+return this;
+}
+
+public MdMangaFilter SetTagAwardWinning(bool? value = true)
+{
+TagAwardWinning = value;
+return this;
+}
+
+public MdMangaFilter SetTagBoysLove(bool? value = true)
+{
+TagBoysLove = value;
+return this;
+}
+
+public MdMangaFilter SetTagComedy(bool? value = true)
+{
+TagComedy = value;
+return this;
+}
+
+public MdMangaFilter SetTagCooking(bool? value = true)
+{
+TagCooking = value;
+return this;
+}
+
+public MdMangaFilter SetTagCrime(bool? value = true)
+{
+TagCrime = value;
+return this;
+}
+
+public MdMangaFilter SetTagCrossdressing(bool? value = true)
+{
+TagCrossdressing = value;
+return this;
+}
+
+public MdMangaFilter SetTagDelinquents(bool? value = true)
+{
+TagDelinquents = value;
+return this;
+}
+
+public MdMangaFilter SetTagDemons(bool? value = true)
+{
+TagDemons = value;
+return this;
+}
+
+public MdMangaFilter SetTagDoujinshi(bool? value = true)
+{
+TagDoujinshi = value;
+return this;
+}
+
+public MdMangaFilter SetTagDrama(bool? value = true)
+{
+TagDrama = value;
+return this;
+}
+
+public MdMangaFilter SetTagFanColored(bool? value = true)
+{
+TagFanColored = value;
+return this;
+}
+
+public MdMangaFilter SetTagFantasy(bool? value = true)
+{
+TagFantasy = value;
+return this;
+}
+
+public MdMangaFilter SetTag4Koma(bool? value = true)
+{
+Tag4Koma = value;
+return this;
+}
+
+public MdMangaFilter SetTagFullColor(bool? value = true)
+{
+TagFullColor = value;
+return this;
+}
+
+public MdMangaFilter SetTagGenderswap(bool? value = true)
+{
+TagGenderswap = value;
+return this;
+}
+
+public MdMangaFilter SetTagGhosts(bool? value = true)
+{
+TagGhosts = value;
+return this;
+}
+
+public MdMangaFilter SetTagGirlsLove(bool? value = true)
+{
+TagGirlsLove = value;
+return this;
+}
+
+public MdMangaFilter SetTagGore(bool? value = true)
+{
+TagGore = value;
+return this;
+}
+
+public MdMangaFilter SetTagGyaru(bool? value = true)
+{
+TagGyaru = value;
+return this;
+}
+
+public MdMangaFilter SetTagHarem(bool? value = true)
+{
+TagHarem = value;
+return this;
+}
+
+public MdMangaFilter SetTagHistorical(bool? value = true)
+{
+TagHistorical = value;
+return this;
+}
+
+public MdMangaFilter SetTagHorror(bool? value = true)
+{
+TagHorror = value;
+return this;
+}
+
+public MdMangaFilter SetTagIncest(bool? value = true)
+{
+TagIncest = value;
+return this;
+}
+
+public MdMangaFilter SetTagIsekai(bool? value = true)
+{
+TagIsekai = value;
+return this;
+}
+
+public MdMangaFilter SetTagLoli(bool? value = true)
+{
+TagLoli = value;
+return this;
+}
+
+public MdMangaFilter SetTagLongStrip(bool? value = true)
+{
+TagLongStrip = value;
+return this;
+}
+
+public MdMangaFilter SetTagMafia(bool? value = true)
+{
+TagMafia = value;
+return this;
+}
+
+public MdMangaFilter SetTagMagic(bool? value = true)
+{
+TagMagic = value;
+return this;
+}
+
+public MdMangaFilter SetTagMagicalGirls(bool? value = true)
+{
+TagMagicalGirls = value;
+return this;
+}
+
+public MdMangaFilter SetTagMartialArts(bool? value = true)
+{
+TagMartialArts = value;
+return this;
+}
+
+public MdMangaFilter SetTagMecha(bool? value = true)
+{
+TagMecha = value;
+return this;
+}
+
+public MdMangaFilter SetTagMedical(bool? value = true)
+{
+TagMedical = value;
+return this;
+}
+
+public MdMangaFilter SetTagMilitary(bool? value = true)
+{
+TagMilitary = value;
+return this;
+}
+
+public MdMangaFilter SetTagMonsterGirls(bool? value = true)
+{
+TagMonsterGirls = value;
+return this;
+}
+
+public MdMangaFilter SetTagMonsters(bool? value = true)
+{
+TagMonsters = value;
+return this;
+}
+
+public MdMangaFilter SetTagMusic(bool? value = true)
+{
+TagMusic = value;
+return this;
+}
+
+public MdMangaFilter SetTagMystery(bool? value = true)
+{
+TagMystery = value;
+return this;
+}
+
+public MdMangaFilter SetTagNinja(bool? value = true)
+{
+TagNinja = value;
+return this;
+}
+
+public MdMangaFilter SetTagOfficeWorkers(bool? value = true)
+{
+TagOfficeWorkers = value;
+return this;
+}
+
+public MdMangaFilter SetTagOfficialColored(bool? value = true)
+{
+TagOfficialColored = value;
+return this;
+}
+
+public MdMangaFilter SetTagOneshot(bool? value = true)
+{
+TagOneshot = value;
+return this;
+}
+
+public MdMangaFilter SetTagPhilosophical(bool? value = true)
+{
+TagPhilosophical = value;
+return this;
+}
+
+public MdMangaFilter SetTagPolice(bool? value = true)
+{
+TagPolice = value;
+return this;
+}
+
+public MdMangaFilter SetTagPostApocalyptic(bool? value = true)
+{
+TagPostApocalyptic = value;
+return this;
+}
+
+public MdMangaFilter SetTagPsychological(bool? value = true)
+{
+TagPsychological = value;
+return this;
+}
+
+public MdMangaFilter SetTagReincarnation(bool? value = true)
+{
+TagReincarnation = value;
+return this;
+}
+
+public MdMangaFilter SetTagReverseHarem(bool? value = true)
+{
+TagReverseHarem = value;
+return this;
+}
+
+public MdMangaFilter SetTagRomance(bool? value = true)
+{
+TagRomance = value;
+return this;
+}
+
+public MdMangaFilter SetTagSamurai(bool? value = true)
+{
+TagSamurai = value;
+return this;
+}
+
+public MdMangaFilter SetTagSchoolLife(bool? value = true)
+{
+TagSchoolLife = value;
+return this;
+}
+
+public MdMangaFilter SetTagSciFi(bool? value = true)
+{
+TagSciFi = value;
+return this;
+}
+
+public MdMangaFilter SetTagSexualViolence(bool? value = true)
+{
+TagSexualViolence = value;
+return this;
+}
+
+public MdMangaFilter SetTagShota(bool? value = true)
+{
+TagShota = value;
+return this;
+}
+
+public MdMangaFilter SetTagSliceofLife(bool? value = true)
+{
+TagSliceofLife = value;
+return this;
+}
+
+public MdMangaFilter SetTagSports(bool? value = true)
+{
+TagSports = value;
+return this;
+}
+
+public MdMangaFilter SetTagSuperhero(bool? value = true)
+{
+TagSuperhero = value;
+return this;
+}
+
+public MdMangaFilter SetTagSupernatural(bool? value = true)
+{
+TagSupernatural = value;
+return this;
+}
+
+public MdMangaFilter SetTagSurvival(bool? value = true)
+{
+TagSurvival = value;
+return this;
+}
+
+public MdMangaFilter SetTagThriller(bool? value = true)
+{
+TagThriller = value;
+return this;
+}
+
+public MdMangaFilter SetTagTimeTravel(bool? value = true)
+{
+TagTimeTravel = value;
+return this;
+}
+
+public MdMangaFilter SetTagTragedy(bool? value = true)
+{
+TagTragedy = value;
+return this;
+}
+
+public MdMangaFilter SetTagTraditionalGames(bool? value = true)
+{
+TagTraditionalGames = value;
+return this;
+}
+
+public MdMangaFilter SetTagUserCreated(bool? value = true)
+{
+TagUserCreated = value;
+return this;
+}
+
+public MdMangaFilter SetTagVampires(bool? value = true)
+{
+TagVampires = value;
+return this;
+}
+
+public MdMangaFilter SetTagVideoGames(bool? value = true)
+{
+TagVideoGames = value;
+return this;
+}
+
+public MdMangaFilter SetTagVillainess(bool? value = true)
+{
+TagVillainess = value;
+return this;
+}
+
+public MdMangaFilter SetTagVirtualReality(bool? value = true)
+{
+TagVirtualReality = value;
+return this;
+}
+
+public MdMangaFilter SetTagWebComic(bool? value = true)
+{
+TagWebComic = value;
+return this;
+}
+
+public MdMangaFilter SetTagWuxia(bool? value = true)
+{
+TagWuxia = value;
+return this;
+}
+
+public MdMangaFilter SetTagZombies(bool? value = true)
+{
+TagZombies = value;
+return this;
+}
+
+
+
+
+Build
+
+
+
+if (TagAction == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Action"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Action"));
+
+if (TagAdaptation == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Adaptation"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Adaptation"));
+
+if (TagAdventure == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Adventure"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Adventure"));
+
+if (TagAliens == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Aliens"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Aliens"));
+
+if (TagAnimals == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Animals"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Animals"));
+
+if (TagAnthology == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Anthology"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Anthology"));
+
+if (TagAwardWinning == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("AwardWinning"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("AwardWinning"));
+
+if (TagBoysLove == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("BoysLove"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("BoysLove"));
+
+if (TagComedy == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Comedy"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Comedy"));
+
+if (TagCooking == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Cooking"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Cooking"));
+
+if (TagCrime == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Crime"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Crime"));
+
+if (TagCrossdressing == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Crossdressing"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Crossdressing"));
+
+if (TagDelinquents == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Delinquents"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Delinquents"));
+
+if (TagDemons == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Demons"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Demons"));
+
+if (TagDoujinshi == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Doujinshi"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Doujinshi"));
+
+if (TagDrama == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Drama"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Drama"));
+
+if (TagFanColored == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("FanColored"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("FanColored"));
+
+if (TagFantasy == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Fantasy"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Fantasy"));
+
+if (Tag4Koma == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("4Koma"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("4Koma"));
+
+if (TagFullColor == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("FullColor"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("FullColor"));
+
+if (TagGenderswap == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Genderswap"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Genderswap"));
+
+if (TagGhosts == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Ghosts"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Ghosts"));
+
+if (TagGirlsLove == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("GirlsLove"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("GirlsLove"));
+
+if (TagGore == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Gore"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Gore"));
+
+if (TagGyaru == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Gyaru"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Gyaru"));
+
+if (TagHarem == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Harem"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Harem"));
+
+if (TagHistorical == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Historical"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Historical"));
+
+if (TagHorror == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Horror"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Horror"));
+
+if (TagIncest == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Incest"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Incest"));
+
+if (TagIsekai == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Isekai"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Isekai"));
+
+if (TagLoli == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Loli"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Loli"));
+
+if (TagLongStrip == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("LongStrip"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("LongStrip"));
+
+if (TagMafia == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Mafia"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Mafia"));
+
+if (TagMagic == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Magic"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Magic"));
+
+if (TagMagicalGirls == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("MagicalGirls"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("MagicalGirls"));
+
+if (TagMartialArts == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("MartialArts"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("MartialArts"));
+
+if (TagMecha == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Mecha"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Mecha"));
+
+if (TagMedical == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Medical"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Medical"));
+
+if (TagMilitary == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Military"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Military"));
+
+if (TagMonsterGirls == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("MonsterGirls"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("MonsterGirls"));
+
+if (TagMonsters == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Monsters"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Monsters"));
+
+if (TagMusic == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Music"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Music"));
+
+if (TagMystery == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Mystery"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Mystery"));
+
+if (TagNinja == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Ninja"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Ninja"));
+
+if (TagOfficeWorkers == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("OfficeWorkers"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("OfficeWorkers"));
+
+if (TagOfficialColored == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("OfficialColored"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("OfficialColored"));
+
+if (TagOneshot == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Oneshot"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Oneshot"));
+
+if (TagPhilosophical == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Philosophical"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Philosophical"));
+
+if (TagPolice == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Police"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Police"));
+
+if (TagPostApocalyptic == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("PostApocalyptic"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("PostApocalyptic"));
+
+if (TagPsychological == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Psychological"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Psychological"));
+
+if (TagReincarnation == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Reincarnation"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Reincarnation"));
+
+if (TagReverseHarem == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("ReverseHarem"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("ReverseHarem"));
+
+if (TagRomance == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Romance"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Romance"));
+
+if (TagSamurai == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Samurai"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Samurai"));
+
+if (TagSchoolLife == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("SchoolLife"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("SchoolLife"));
+
+if (TagSciFi == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("SciFi"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("SciFi"));
+
+if (TagSexualViolence == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("SexualViolence"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("SexualViolence"));
+
+if (TagShota == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Shota"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Shota"));
+
+if (TagSliceofLife == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("SliceofLife"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("SliceofLife"));
+
+if (TagSports == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Sports"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Sports"));
+
+if (TagSuperhero == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Superhero"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Superhero"));
+
+if (TagSupernatural == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Supernatural"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Supernatural"));
+
+if (TagSurvival == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Survival"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Survival"));
+
+if (TagThriller == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Thriller"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Thriller"));
+
+if (TagTimeTravel == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("TimeTravel"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("TimeTravel"));
+
+if (TagTragedy == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Tragedy"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Tragedy"));
+
+if (TagTraditionalGames == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("TraditionalGames"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("TraditionalGames"));
+
+if (TagUserCreated == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("UserCreated"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("UserCreated"));
+
+if (TagVampires == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Vampires"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Vampires"));
+
+if (TagVideoGames == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("VideoGames"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("VideoGames"));
+
+if (TagVillainess == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Villainess"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Villainess"));
+
+if (TagVirtualReality == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("VirtualReality"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("VirtualReality"));
+
+if (TagWebComic == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("WebComic"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("WebComic"));
+
+if (TagWuxia == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Wuxia"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Wuxia"));
+
+if (TagZombies == true)
+_parametersParams.Add("includedTags[]=", Helper.ConvertTagToUuid("Zombies"));
+else if (TagAction == null)
+_parametersParams.Add("excludedTags[]=", Helper.ConvertTagToUuid("Zombies"));
